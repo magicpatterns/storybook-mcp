@@ -12,7 +12,7 @@ import {
 	addGetStoryDocumentationTool,
 	addReadComponentCodeTool,
 	type Source,
-} from '@magicpatterns/mcp';
+} from '@alexanderlee/mcp';
 import type { Options } from 'storybook/internal/types';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { buffer } from 'node:stream/consumers';

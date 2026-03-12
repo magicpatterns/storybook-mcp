@@ -1,16 +1,16 @@
 {
-	"name": "@magicpatterns/addon-mcp",
+	"name": "@alexanderlee/addon-mcp",
 	"version": "0.3.4",
-	"description": "Help agents automatically write and test stories for your UI components",
+	"description": "Help agents read and understand your design system",
 	"keywords": [
 		"ai",
 		"mcp",
 		"storybook-addon"
 	],
 	"license": "MIT",
-	"author": "Storybook Core Team",
+	"author": "Storybook Core Team & Magic Patterns",
 	"repository": {
-		"url": "git+https://github.com/storybookjs/mcp.git",
+		"url": "git+https://github.com/magicpatterns/storybook-mcp.git",
 		"directory": "packages/addon-mcp"
 	},
 	"files": [
@@ -26,18 +26,18 @@
 		"./package.json": "./package.json"
 	},
 	"publishConfig": {
-		"access": "public"
+		"access": "restricted"
 	},
 	"scripts": {
 		"prebuild": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\"",
 		"build": "tsdown",
 		"inspect": "mcp-inspector --config ../../.mcp.inspect.json --server storybook-addon-mcp",
 		"publint": "publint",
-		"test": "cd ../.. && pnpm vitest --project=@magicpatterns/addon-mcp",
+		"test": "cd ../.. && pnpm vitest --project=@alexanderlee/addon-mcp",
 		"typecheck": "tsc"
 	},
 	"dependencies": {
-		"@magicpatterns/mcp": "workspace:*",
+		"@alexanderlee/mcp": "workspace:*",
 		"@tmcp/adapter-valibot": "catalog:",
 		"@tmcp/transport-http": "catalog:",
 		"picoquery": "^2.5.0",

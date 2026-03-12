@@ -1,5 +1,5 @@
 /**
- * This is a way to start the @magicpatterns/mcp server as a stdio MCP server, which is sometimes easier for testing.
+ * This is a way to start the @alexanderlee/mcp server as a stdio MCP server, which is sometimes easier for testing.
  * You can run it like this:
  *   node bin.ts --manifestsDir ./path/to/manifests/dir/
  *

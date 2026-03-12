@@ -67,8 +67,8 @@ eval/
 │       ├── prompt.md                # Main prompt
 │       ├── hooks.ts                 # Optional lifecycle hooks
 │       ├── manifests/               # Optional manifest files directory
-│       │   ├── components.json      # Component manifest for @magicpatterns/mcp
-│       │   └── docs.json            # Optional docs manifest for @magicpatterns/mcp
+│       │   ├── components.json      # Component manifest for @alexanderlee/mcp
+│       │   └── docs.json            # Optional docs manifest for @alexanderlee/mcp
 │       ├── mcp.config.json          # Optional MCP server config
 │       ├── *.md                     # Optional additional context
 │       ├── pre-grade/               # Optional files to copy before grading
@@ -88,14 +88,14 @@ The harness supports five distinct context types:
    - Tests baseline agent capabilities
 
 2. **Storybook MCP - Dev** (`--context storybook-dev`):
-   - Sets up Storybook in the trial project with `@magicpatterns/addon-mcp`
+   - Sets up Storybook in the trial project with `@alexanderlee/addon-mcp`
    - Starts a local Storybook dev server
    - Configures the MCP server endpoint (`/mcp`) for the agent
    - Best for testing agents in a live development environment
    - Includes automatic setup and teardown of the dev server
 
 3. **Storybook MCP - Docs** (`--context components.json`):
-   - Provides component documentation via `@magicpatterns/mcp` package
+   - Provides component documentation via `@alexanderlee/mcp` package
    - Uses stdio transport with `packages/mcp/bin.ts`
    - Best for testing agents with library/component documentation
    - This uses the Storybook MCP server, not a custom MCP server
@@ -166,8 +166,8 @@ node advanced-eval.ts --help
    ```
 
 3. **Optional: Add context files:**
-   - `manifests/components.json` - Component manifest for `@magicpatterns/mcp` (in a `manifests/` subdirectory)
-   - `manifests/docs.json` - Optional docs manifest for `@magicpatterns/mcp` (in a `manifests/` subdirectory)
+   - `manifests/components.json` - Component manifest for `@alexanderlee/mcp` (in a `manifests/` subdirectory)
+   - `manifests/docs.json` - Optional docs manifest for `@alexanderlee/mcp` (in a `manifests/` subdirectory)
    - `mcp.config.json` - Custom MCP server configuration
    - `extra-prompt-*.md` - Supplementary instructions
 
@@ -660,7 +660,7 @@ The harness can optionally upload results to Google Sheets for tracking trials o
 
 When using `--context storybook-dev`, the harness:
 
-1. Copies the grading template with `.storybook` config (includes `@magicpatterns/addon-mcp`)
+1. Copies the grading template with `.storybook` config (includes `@alexanderlee/addon-mcp`)
 2. Installs Storybook packages in the trial project
 3. Starts a Storybook dev server on a random available port
 4. Provides MCP config to the agent:
@@ -674,7 +674,7 @@ When using `--context storybook-dev`, the harness:
      }
    }
    ```
-5. Agent receives MCP tools from `@magicpatterns/addon-mcp`
+5. Agent receives MCP tools from `@alexanderlee/addon-mcp`
 6. On teardown, the dev server is automatically stopped
 
 ### Storybook MCP - Docs Pattern (Component Manifest)
@@ -694,7 +694,7 @@ When using `--context storybook-docs`, the harness:
      }
    }
    ```
-3. Agent receives MCP tools from `@magicpatterns/mcp` package
+3. Agent receives MCP tools from `@alexanderlee/mcp` package
 
 ### Custom MCP Server Pattern
 

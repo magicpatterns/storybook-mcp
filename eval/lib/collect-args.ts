@@ -232,7 +232,7 @@ Examples:
 Context Modes:
   None                  Agent uses only built-in tools (--no-context)
   Storybook MCP - Dev   Runs local Storybook dev server with MCP (--context storybook-dev)
-  Storybook MCP - Docs  Provides component docs via @magicpatterns/mcp (--context file.json)
+  Storybook MCP - Docs  Provides component docs via @alexanderlee/mcp (--context file.json)
   MCP Server            Custom MCP server config (--context mcp.config.json or inline JSON)
   Extra Prompts         Append markdown instructions (--context file1.md,file2.md)
 

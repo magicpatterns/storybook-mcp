@@ -53,7 +53,7 @@ export type PreviewStoriesOutput = v.InferOutput<typeof PreviewStoriesOutput>;
 export async function addPreviewStoriesTool(server: McpServer<any, AddonContext>) {
 	const previewStoryAppScript = await fs.readFile(
 		url.fileURLToPath(
-			import.meta.resolve('@magicpatterns/addon-mcp/internal/preview-stories-app-script'),
+			import.meta.resolve('@alexanderlee/addon-mcp/internal/preview-stories-app-script'),
 		),
 		'utf-8',
 	);

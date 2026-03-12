@@ -2,7 +2,7 @@
 applyTo: 'packages/addon-mcp/**'
 ---
 
-# Copilot Instructions for @magicpatterns/addon-mcp
+# Copilot Instructions for @alexanderlee/addon-mcp
 
 ## Project Overview
 
@@ -42,7 +42,7 @@ The addon supports two toolsets that can be enabled/disabled:
 
 ```typescript
 {
-	name: '@magicpatterns/addon-mcp',
+	name: '@alexanderlee/addon-mcp',
 	options: {
 		toolsets: {
 			dev: true,
@@ -96,7 +96,7 @@ src/
 ### Key Design Patterns
 
 1. **Vite Plugin Workaround**: Uses `viteFinal` preset hook to inject middleware (Storybook has no native addon API for server middleware)
-2. **Factory Pattern**: `createAddonMcpHandler()` creates configured handler instances following the pattern from `@magicpatterns/mcp`
+2. **Factory Pattern**: `createAddonMcpHandler()` creates configured handler instances following the pattern from `@alexanderlee/mcp`
 3. **Context-Based Architecture**: AddonContext provides Storybook options, origin URL, and client info to all tools
 4. **Tool Registration**: Tools are async functions that register with `server.tool()` and receive typed input
 5. **Framework Detection**: Uses Storybook's preset system to detect framework and customize instructions
@@ -434,7 +434,7 @@ The addon collects anonymous usage data:
 
 **For addon-specific tools**: Telemetry is collected directly in the tool implementation using `collectTelemetry()`.
 
-**For reused tools from `@magicpatterns/mcp`**: The addon uses optional handlers (`onListAllDocumentation`, `onGetDocumentation`) provided by the `StorybookContext` to track usage. These handlers are passed in the context when calling `transport.respond()` in `mcp-handler.ts`:
+**For reused tools from `@alexanderlee/mcp`**: The addon uses optional handlers (`onListAllDocumentation`, `onGetDocumentation`) provided by the `StorybookContext` to track usage. These handlers are passed in the context when calling `transport.respond()` in `mcp-handler.ts`:
 
 ```typescript
 const addonContext: AddonContext = {
@@ -517,7 +517,7 @@ pnpm changeset        # Create a changeset
 pnpm release          # Build and publish to npm (from root)
 ```
 
-Published to npm as `@magicpatterns/addon-mcp`.
+Published to npm as `@alexanderlee/addon-mcp`.
 
 ## Package Configuration
 
@@ -563,7 +563,7 @@ The `preset.js` file at the root re-exports the compiled preset from `dist/`.
 - `vite` - Dev server (peer dependency via Storybook)
 - `storybook` - Storybook core (peer dependency)
 
-**Note**: This addon shares the same MCP architecture as `@magicpatterns/mcp` package but is specifically designed to run within a Storybook dev server environment. The main difference is the integration layer - this addon uses Vite middleware while the standalone package provides a pure HTTP handler.
+**Note**: This addon shares the same MCP architecture as `@alexanderlee/mcp` package but is specifically designed to run within a Storybook dev server environment. The main difference is the integration layer - this addon uses Vite middleware while the standalone package provides a pure HTTP handler.
 
 ## Documentation Resources
 

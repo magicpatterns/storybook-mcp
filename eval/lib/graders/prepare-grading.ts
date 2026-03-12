@@ -11,7 +11,7 @@ export async function prepareGrading({ projectPath }: TrialArgs) {
 			'storybook@catalog:trials',
 			'@storybook/addon-docs@catalog:trials',
 			'@storybook/addon-a11y@catalog:trials',
-			'@magicpatterns/addon-mcp@workspace:*',
+			'@alexanderlee/addon-mcp@workspace:*',
 			'@storybook/addon-vitest@catalog:trials',
 			'@storybook/react-vite@catalog:trials',
 			'eslint-plugin-storybook@catalog:trials',

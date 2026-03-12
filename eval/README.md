@@ -97,7 +97,7 @@ The harness supports five context modes:
 
 1. **No context** (`--no-context`): Agent uses only default tools
 2. **Storybook MCP - Dev** (`--context storybook-dev`): Sets up local Storybook dev server with MCP endpoint
-3. **Storybook MCP - Docs** (`--context components.json`): Provides component documentation via the `@magicpatterns/mcp` package
+3. **Storybook MCP - Docs** (`--context components.json`): Provides component documentation via the `@alexanderlee/mcp` package
 4. **MCP server config** (`--context mcp.config.json` or inline JSON): Custom MCP server setup (use this for fully custom MCP servers, not for Storybook MCP)
 5. **Extra prompts** (`--context extra-prompt-01.md,extra-prompt-02.md`): Additional markdown files appended to main prompt
 
@@ -151,8 +151,8 @@ eval/
 │   └── 100-flight-booking-plain/
 │       ├── prompt.md               # Main prompt for the agent
 │       ├── manifests/               # Optional: manifest files directory
-│       │   ├── components.json     # Component manifest for @magicpatterns/mcp
-│       │   └── docs.json     			# Optional docs manifest for @magicpatterns/mcp
+│       │   ├── components.json     # Component manifest for @alexanderlee/mcp
+│       │   └── docs.json     			# Optional docs manifest for @alexanderlee/mcp
 │       ├── mcp.config.json         # Optional: MCP server config
 │       ├── extra-prompt-*.md       # Optional: additional context
 │       ├── hooks.ts                # Optional: lifecycle hooks

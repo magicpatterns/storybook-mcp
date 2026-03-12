@@ -6,8 +6,8 @@ Welcome to the Storybook MCP Addon monorepo! This project enables AI agents to w
 
 This monorepo contains two main packages:
 
-- **[@magicpatterns/mcp](./packages/mcp)** - Standalone MCP library for serving Storybook component knowledge (can be used independently)
-- **[@magicpatterns/addon-mcp](./packages/addon-mcp)** - Storybook addon that runs an MCP server within your Storybook dev server, and includes the functionality of **[@magicpatterns/mcp](./packages/mcp)** from your local Storybook
+- **[@alexanderlee/mcp](./packages/mcp)** - Standalone MCP library for serving Storybook component knowledge (can be used independently)
+- **[@alexanderlee/addon-mcp](./packages/addon-mcp)** - Storybook addon that runs an MCP server within your Storybook dev server, and includes the functionality of **[@alexanderlee/mcp](./packages/mcp)** from your local Storybook
 
 Each package has its own README with user-facing documentation. This document is for **contributors** looking to develop, test, or contribute to these packages.
 

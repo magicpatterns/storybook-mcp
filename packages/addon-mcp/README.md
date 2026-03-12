@@ -20,7 +20,7 @@ The addon provides tools to improve agents' UI development capabilities, retriev
 Use Storybook's CLI to automatically install and configure the addon:
 
 ```bash
-npx storybook add @magicpatterns/addon-mcp
+npx storybook add @alexanderlee/addon-mcp
 ```
 
 This command will install the addon and add it to your Storybook configuration automatically.
@@ -44,7 +44,7 @@ You can configure which toolsets are enabled by default in your `.storybook/main
 export default {
 	addons: [
 		{
-			name: '@magicpatterns/addon-mcp',
+			name: '@alexanderlee/addon-mcp',
 			options: {
 				toolsets: {
 					dev: true, // Tools for story URL retrieval and UI building instructions (default: true)

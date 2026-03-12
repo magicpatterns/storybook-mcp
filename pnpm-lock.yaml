@@ -29,10 +29,10 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.22.0
         version: 1.22.0
-      '@magicpatterns/addon-mcp':
+      '@alexanderlee/addon-mcp':
         specifier: workspace:*
         version: link:packages/addon-mcp
-      '@magicpatterns/mcp':
+      '@alexanderlee/mcp':
         specifier: workspace:*
         version: link:packages/mcp
       '@types/node':

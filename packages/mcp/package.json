@@ -1,5 +1,5 @@
 {
-	"name": "@magicpatterns/mcp",
+	"name": "@alexanderlee/mcp",
 	"version": "0.5.1",
 	"description": "MCP server that serves knowledge about your components based on your Storybook stories and documentation",
 	"keywords": [
@@ -8,14 +8,17 @@
 	],
 	"homepage": "https://github.com/storybookjs/mcp/blob/main/packages/mcp/README.md",
 	"license": "MIT",
-	"author": "Storybook Core Team",
+	"author": "Storybook Core Team & Magic Patterns",
 	"repository": {
-		"url": "git+https://github.com/storybookjs/mcp.git",
+		"url": "git+https://github.com/magicpatterns/storybook-mcp.git",
 		"directory": "packages/mcp"
 	},
 	"files": [
 		"dist"
 	],
+	"publishConfig": {
+		"access": "restricted"
+	},
 	"type": "module",
 	"exports": {
 		".": {
@@ -29,7 +32,7 @@
 		"dev": "node --watch ./serve.ts",
 		"inspect": "mcp-inspector --config ../../.mcp.inspect.json --server storybook-mcp",
 		"publint": "publint",
-		"test": "cd ../.. && pnpm vitest --project=@magicpatterns/mcp",
+		"test": "cd ../.. && pnpm vitest --project=@alexanderlee/mcp",
 		"typecheck": "tsc"
 	},
 	"dependencies": {

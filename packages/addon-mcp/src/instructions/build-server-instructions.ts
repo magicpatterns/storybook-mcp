@@ -1,6 +1,6 @@
 import devInstructions from './dev-instructions.md';
 import testInstructions from './test-instructions.md';
-import { STORYBOOK_MCP_INSTRUCTIONS } from '@magicpatterns/mcp';
+import { STORYBOOK_MCP_INSTRUCTIONS } from '@alexanderlee/mcp';
 
 export type BuildServerInstructionsOptions = {
 	devEnabled: boolean;

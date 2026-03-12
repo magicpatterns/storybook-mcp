@@ -28,7 +28,7 @@
 
 		// Enable live types
 		"paths": {
-			"@magicpatterns/mcp": ["./packages/mcp/src/index.ts"]
+			"@alexanderlee/mcp": ["./packages/mcp/src/index.ts"]
 		}
 	},
 	"include": ["*.ts"]

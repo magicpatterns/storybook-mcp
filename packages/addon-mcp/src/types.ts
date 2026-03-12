@@ -1,6 +1,6 @@
 import * as v from 'valibot';
 import type { Options } from 'storybook/internal/types';
-import { GET_TOOL_NAME, LIST_TOOL_NAME, type StorybookContext } from '@magicpatterns/mcp';
+import { GET_TOOL_NAME, LIST_TOOL_NAME, type StorybookContext } from '@alexanderlee/mcp';
 import { GET_UI_BUILDING_INSTRUCTIONS_TOOL_NAME } from './tools/tool-names.ts';
 
 export const AddonOptions = v.object({
@@ -24,7 +24,7 @@ export type AddonOptionsOutput = v.InferOutput<typeof AddonOptions>;
 /**
  * Custom context passed to MCP server and tools.
  * Contains Storybook-specific configuration and runtime information.
- * Extends StorybookContext to be compatible with @magicpatterns/mcp tools.
+ * Extends StorybookContext to be compatible with @alexanderlee/mcp tools.
  */
 export type AddonContext = StorybookContext & {
 	/**
