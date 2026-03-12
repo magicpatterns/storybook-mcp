@@ -871,7 +871,7 @@ describe('MarkdownFormatter - formatManifestsToLists', () => {
 			expect(result).toMatchInlineSnapshot(`
 				"# Components
 
-				- Button (button)"
+				- Button (id: button)"
 			`);
 		});
 
@@ -904,9 +904,9 @@ describe('MarkdownFormatter - formatManifestsToLists', () => {
 			expect(result).toMatchInlineSnapshot(`
 				"# Components
 
-				- Button (button)
-				- Card (card)
-				- Input (input)"
+				- Button (id: button)
+				- Card (id: card)
+				- Input (id: input)"
 			`);
 		});
 
@@ -931,12 +931,12 @@ describe('MarkdownFormatter - formatManifestsToLists', () => {
 			const result = formatManifestsToLists(manifests, { withStoryIds: true });
 
 			expect(result).toMatchInlineSnapshot(`
-					"# Components
+				"# Components
 
-					- Button (button)
-					  - Primary (button--primary)
-					  - Secondary (button--secondary)"
-				`);
+				- Button (id: button)
+				  - Primary (button--primary)
+				  - Secondary (button--secondary)"
+			`);
 		});
 	});
 
@@ -961,7 +961,7 @@ describe('MarkdownFormatter - formatManifestsToLists', () => {
 			expect(result).toMatchInlineSnapshot(`
 				"# Components
 
-				- Button (button): A versatile button component"
+				- Button (id: button): A versatile button component"
 			`);
 		});
 
@@ -1007,7 +1007,7 @@ describe('MarkdownFormatter - formatManifestsToLists', () => {
 			expect(result).toMatchInlineSnapshot(`
 				"# Components
 
-				- Button (button): A simple button component"
+				- Button (id: button): A simple button component"
 			`);
 		});
 
@@ -1033,7 +1033,7 @@ describe('MarkdownFormatter - formatManifestsToLists', () => {
 			expect(result).toMatchInlineSnapshot(`
 				"# Components
 
-				- Button (button): This is a very long description that exceeds ninety characters and should be truncated wit..."
+				- Button (id: button): This is a very long description that exceeds ninety characters and should be truncated wit..."
 			`);
 		});
 
@@ -1077,7 +1077,7 @@ describe('MarkdownFormatter - formatManifestsToLists', () => {
 			expect(result).toMatchInlineSnapshot(`
 				"# Components
 
-				- Button (button)"
+				- Button (id: button)"
 			`);
 		});
 	});
@@ -1114,7 +1114,7 @@ describe('MarkdownFormatter - formatManifestsToLists', () => {
 			expect(result).toMatchInlineSnapshot(`
 				"# Components
 
-				- Button (button)
+				- Button (id: button)
 
 				# Docs
 
@@ -1215,7 +1215,7 @@ describe('MarkdownFormatter - formatManifestsToLists', () => {
 			expect(result).toMatchInlineSnapshot(`
 				"# Components
 
-				- Button (button)
+				- Button (id: button)
 
 				# Docs
 
@@ -1254,7 +1254,7 @@ describe('MarkdownFormatter - formatManifestsToLists', () => {
 			expect(result).toMatchInlineSnapshot(`
 				"# Components
 
-				- Button (button)
+				- Button (id: button)
 
 				# Docs
 

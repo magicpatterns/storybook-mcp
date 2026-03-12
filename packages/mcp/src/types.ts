@@ -49,6 +49,13 @@ export type StorybookContext = {
 		source?: Source,
 	) => Promise<string>;
 	/**
+	 * Optional function to read a project source file by its relative path.
+	 * Used by the read-component-code tool to return actual component source.
+	 * The path is the component's relative path from the manifest (e.g. "src/components/Button.tsx").
+	 * Returns the file contents as a string, or undefined if the file cannot be read.
+	 */
+	fileReader?: (relativePath: string) => Promise<string | undefined>;
+	/**
 	 * Sources configuration for multi-source mode.
 	 * When provided, tools will fetch and display manifests grouped by source.
 	 */

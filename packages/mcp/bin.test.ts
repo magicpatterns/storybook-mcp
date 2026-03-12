@@ -123,7 +123,7 @@ describe('bin.ts stdio MCP server', () => {
 					},
 				},
 				serverInfo: {
-					name: '@storybook/mcp',
+					name: '@magicpatterns/mcp',
 				},
 			},
 		});
@@ -149,6 +149,9 @@ describe('bin.ts stdio MCP server', () => {
 					}),
 					expect.objectContaining({
 						name: 'get-documentation',
+					}),
+					expect.objectContaining({
+						name: 'read-component-code',
 					}),
 				]),
 			},

@@ -6,7 +6,7 @@
  * MCP clients like VS Code to handle the OAuth flow with Chromatic.
  */
 
-import { ComponentManifestMap, DocsManifestMap, type Source } from '@storybook/mcp';
+import { ComponentManifestMap, DocsManifestMap, type Source } from '@magicpatterns/mcp';
 import * as v from 'valibot';
 
 export interface ComposedRef {

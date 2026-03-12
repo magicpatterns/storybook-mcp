@@ -20,7 +20,7 @@ The addon provides tools to improve agents' UI development capabilities, retriev
 Use Storybook's CLI to automatically install and configure the addon:
 
 ```bash
-npx storybook add @storybook/addon-mcp
+npx storybook add @magicpatterns/addon-mcp
 ```
 
 This command will install the addon and add it to your Storybook configuration automatically.
@@ -44,7 +44,7 @@ You can configure which toolsets are enabled by default in your `.storybook/main
 export default {
 	addons: [
 		{
-			name: '@storybook/addon-mcp',
+			name: '@magicpatterns/addon-mcp',
 			options: {
 				toolsets: {
 					dev: true, // Tools for story URL retrieval and UI building instructions (default: true)
@@ -212,6 +212,22 @@ Retrieves detailed documentation for a specific component or docs entry.
 Component documentation includes component ID and story IDs for listed stories, so agents can directly feed those IDs into `preview-stories` and `run-story-tests`.
 
 The agent provides a component/docs ID to retrieve its documentation. To get documentation for multiple entries, call this tool multiple times.
+
+#### 5. Get Documentation for Story (`get-documentation-for-story`)
+
+Returns detailed documentation for a specific story variant. Use this when you need additional usage examples beyond what `get-documentation` returns.
+
+#### 6. Read Component Code (`read-component-code`)
+
+Reads the actual source code of a component's implementation file. Accepts either a `componentId` or a `storyId` to identify the component. Use this when you need to understand how a component is implemented, not just its documentation.
+
+#### 7. Get Design Tokens (`get-design-tokens`)
+
+Extracts design tokens (colors, typography, spacing, and other CSS custom properties) from the project's CSS files and Storybook preview configuration. Useful for understanding the design system's visual foundation when building or styling components.
+
+#### 8. Get Design Guidelines (`get-design-guidelines`)
+
+Returns foundational design documentation from the project's standalone MDX/Markdown files. Scans story directories for files matching guideline-like names (e.g., getting-started, theming, foundations, guidelines, overview).
 
 ## Contributing
 

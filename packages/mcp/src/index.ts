@@ -5,6 +5,7 @@ import pkgJson from '../package.json' with { type: 'json' };
 import { addListAllDocumentationTool } from './tools/list-all-documentation.ts';
 import { addGetStoryDocumentationTool } from './tools/get-documentation-for-story.ts';
 import { addGetDocumentationTool } from './tools/get-documentation.ts';
+import { addReadComponentCodeTool } from './tools/read-component-code.ts';
 import type { StorybookContext } from './types.ts';
 import serverInstructions from './instructions.md';
 
@@ -17,6 +18,10 @@ export {
 	addGetStoryDocumentationTool,
 	GET_STORY_TOOL_NAME,
 } from './tools/get-documentation-for-story.ts';
+export {
+	addReadComponentCodeTool,
+	READ_COMPONENT_CODE_TOOL_NAME,
+} from './tools/read-component-code.ts';
 
 // Export manifest constants and utilities
 export {
@@ -100,6 +105,7 @@ export const createStorybookMcpHandler = async (
 	await addListAllDocumentationTool(server);
 	await addGetStoryDocumentationTool(server);
 	await addGetDocumentationTool(server);
+	await addReadComponentCodeTool(server);
 
 	const transport = new HttpTransport(server, { path: null });
 

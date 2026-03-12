@@ -27,9 +27,9 @@ function formatComponentLine(component: ComponentManifest): string {
 			: undefined);
 
 	if (summary) {
-		return `- ${component.name} (${component.id}): ${summary}`;
+		return `- ${component.name} (id: ${component.id}): ${summary}`;
 	}
-	return `- ${component.name} (${component.id})`;
+	return `- ${component.name} (id: ${component.id})`;
 }
 
 function formatDocLine(doc: Doc): string {

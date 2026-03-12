@@ -3,7 +3,7 @@
 	"components": {
 		"button": {
 			"id": "button",
-			"path": "src/components/Button.tsx",
+			"path": "src/stories/Button.stories.tsx",
 			"name": "Button",
 			"summary": "A simple button component",
 			"stories": [
@@ -13,11 +13,18 @@
 					"description": "The primary button variant.",
 					"snippet": "const Primary = () => <Button variant=\"primary\">Click Me</Button>"
 				}
-			]
+			],
+			"reactDocgenTypescript": {
+				"displayName": "Button",
+				"filePath": "src/components/Button.tsx",
+				"description": "",
+				"methods": [],
+				"props": {}
+			}
 		},
 		"card": {
 			"id": "card",
-			"path": "src/components/Card.tsx",
+			"path": "src/stories/Card.stories.tsx",
 			"name": "Card",
 			"description": "A container component for grouping related content.",
 			"stories": [
@@ -27,11 +34,18 @@
 					"description": "A basic card with content.",
 					"snippet": "const Basic = () => (\n  <Card>\n    <h3>Title</h3>\n    <p>Content</p>\n  </Card>\n)"
 				}
-			]
+			],
+			"reactDocgenTypescript": {
+				"displayName": "Card",
+				"filePath": "src/components/Card.tsx",
+				"description": "",
+				"methods": [],
+				"props": {}
+			}
 		},
 		"input": {
 			"id": "input",
-			"path": "src/components/Input.tsx",
+			"path": "src/stories/Input.stories.tsx",
 			"name": "Input",
 			"description": "A text input component with validation support.",
 			"stories": [
@@ -41,7 +55,14 @@
 					"description": "A basic text input.",
 					"snippet": "const Basic = () => <Input label=\"Name\" placeholder=\"Enter name\" />"
 				}
-			]
+			],
+			"reactDocgenTypescript": {
+				"displayName": "Input",
+				"filePath": "src/components/Input.tsx",
+				"description": "",
+				"methods": [],
+				"props": {}
+			}
 		}
 	}
 }

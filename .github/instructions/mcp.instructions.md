@@ -2,7 +2,7 @@
 applyTo: 'packages/mcp/**'
 ---
 
-# Copilot Instructions for @storybook/mcp
+# Copilot Instructions for @magicpatterns/mcp
 
 ## Project Overview
 
@@ -26,15 +26,18 @@ src/
   index.ts          # Main entry point - exports createStorybookMcpHandler
   serve.ts          # Development server setup
   tools/
-    list-all-documentation.ts              # List all documentation tool
-    get-documentation.ts      # Get component documentation tool
+    list-all-documentation.ts          # List all documentation tool
+    get-documentation.ts               # Get component documentation tool
+    get-documentation-for-story.ts     # Get documentation for a specific story variant
+    read-component-code.ts             # Read component source code tool
   utils/
-    manifest-formatter/markdown.ts      # Format component/docs manifests to markdown
+    manifest-formatter/markdown.ts     # Format component/docs manifests to markdown
     parse-react-docgen.ts              # Parse react-docgen output
     get-manifest.ts                    # Fetch and validate manifest
     dedent.ts                          # Template string dedentation
     error-to-mcp-content.test.ts       # Error formatting utilities
   types.ts          # TypeScript types and Valibot schemas
+  instructions.md   # Server instructions for MCP clients
 ```
 
 ### Key Design Patterns
@@ -60,7 +63,7 @@ The handler accepts a `StorybookContext` with the following key properties:
 **Example with custom manifestProvider (local filesystem):**
 
 ```typescript
-import { createStorybookMcpHandler } from '@storybook/mcp';
+import { createStorybookMcpHandler } from '@magicpatterns/mcp';
 import { readFile } from 'node:fs/promises';
 
 const handler = await createStorybookMcpHandler({
@@ -79,7 +82,7 @@ const handler = await createStorybookMcpHandler({
 **Example with custom manifestProvider (S3 bucket mapping):**
 
 ```typescript
-import { createStorybookMcpHandler } from '@storybook/mcp';
+import { createStorybookMcpHandler } from '@magicpatterns/mcp';
 
 const handler = await createStorybookMcpHandler({
 	manifestProvider: async (request, path) => {

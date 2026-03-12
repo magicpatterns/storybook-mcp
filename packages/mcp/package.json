@@ -1,5 +1,5 @@
 {
-	"name": "@storybook/mcp",
+	"name": "@magicpatterns/mcp",
 	"version": "0.5.1",
 	"description": "MCP server that serves knowledge about your components based on your Storybook stories and documentation",
 	"keywords": [
@@ -29,7 +29,7 @@
 		"dev": "node --watch ./serve.ts",
 		"inspect": "mcp-inspector --config ../../.mcp.inspect.json --server storybook-mcp",
 		"publint": "publint",
-		"test": "cd ../.. && pnpm vitest --project=@storybook/mcp",
+		"test": "cd ../.. && pnpm vitest --project=@magicpatterns/mcp",
 		"typecheck": "tsc"
 	},
 	"dependencies": {

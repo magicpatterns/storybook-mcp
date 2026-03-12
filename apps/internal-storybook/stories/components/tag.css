@@ -1,0 +1,43 @@
+.storybook-tag {
+	font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 13px;
+	font-weight: 600;
+	padding: 4px 10px;
+	border-radius: 6px;
+}
+.storybook-tag--gray {
+	background-color: var(--color-bg-secondary, #f0f0f0);
+	color: var(--color-text-secondary, #666);
+}
+.storybook-tag--blue {
+	background-color: #e6f0ff;
+	color: #1a66cc;
+}
+.storybook-tag--green {
+	background-color: #e6f9e6;
+	color: #1a7f1a;
+}
+.storybook-tag--red {
+	background-color: #ffe6e6;
+	color: #cc1a1a;
+}
+.storybook-tag--purple {
+	background-color: #f0e6ff;
+	color: #7a1acc;
+}
+.storybook-tag__remove {
+	background: none;
+	border: none;
+	font-size: 16px;
+	line-height: 1;
+	cursor: pointer;
+	color: inherit;
+	opacity: 0.6;
+	padding: 0;
+}
+.storybook-tag__remove:hover {
+	opacity: 1;
+}

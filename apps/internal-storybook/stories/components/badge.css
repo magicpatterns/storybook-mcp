@@ -1,0 +1,36 @@
+.storybook-badge {
+	font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	display: inline-flex;
+	align-items: center;
+	border-radius: 999px;
+	white-space: nowrap;
+}
+.storybook-badge--small {
+	font-size: 11px;
+	padding: 2px 8px;
+}
+.storybook-badge--medium {
+	font-size: 13px;
+	padding: 4px 12px;
+}
+.storybook-badge--default {
+	background-color: var(--color-bg-secondary, #f0f0f0);
+	color: var(--color-text-secondary, #666);
+}
+.storybook-badge--success {
+	background-color: #e6f9e6;
+	color: #1a7f1a;
+}
+.storybook-badge--warning {
+	background-color: #fff8e6;
+	color: #b36b00;
+}
+.storybook-badge--error {
+	background-color: #ffe6e6;
+	color: #cc1a1a;
+}
+.storybook-badge--info {
+	background-color: #e6f0ff;
+	color: #1a66cc;
+}

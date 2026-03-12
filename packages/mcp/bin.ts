@@ -1,5 +1,5 @@
 /**
- * This is a way to start the @storybook/mcp server as a stdio MCP server, which is sometimes easier for testing.
+ * This is a way to start the @magicpatterns/mcp server as a stdio MCP server, which is sometimes easier for testing.
  * You can run it like this:
  *   node bin.ts --manifestsDir ./path/to/manifests/dir/
  *
@@ -19,6 +19,7 @@ import pkgJson from './package.json' with { type: 'json' };
 import { addListAllDocumentationTool } from './src/tools/list-all-documentation.ts';
 import { addGetStoryDocumentationTool } from './src/tools/get-documentation-for-story.ts';
 import { addGetDocumentationTool } from './src/tools/get-documentation.ts';
+import { addReadComponentCodeTool } from './src/tools/read-component-code.ts';
 import type { StorybookContext } from './src/types.ts';
 import { parseArgs } from 'node:util';
 import * as fs from 'node:fs/promises';
@@ -50,6 +51,7 @@ const server = new McpServer(
 await addListAllDocumentationTool(server);
 await addGetStoryDocumentationTool(server);
 await addGetDocumentationTool(server);
+await addReadComponentCodeTool(server);
 
 const transport = new StdioTransport(server);
 const args = parseArgs({

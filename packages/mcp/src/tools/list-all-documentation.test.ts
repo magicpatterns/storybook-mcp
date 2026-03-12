@@ -72,9 +72,9 @@ describe('listAllDocumentationTool', () => {
 			    {
 			      "text": "# Components
 
-			- Button (button): A simple button component
-			- Card (card): A container component for grouping related content.
-			- Input (input): A text input component with validation support.",
+			- Button (id: button): A simple button component
+			- Card (id: card): A container component for grouping related content.
+			- Input (id: input): A text input component with validation support.",
 			      "type": "text",
 			    },
 			  ],
@@ -101,7 +101,7 @@ describe('listAllDocumentationTool', () => {
 		});
 
 		const text = (response.result as any).content[0].text;
-		expect(text).toContain('Button (button): A simple button component');
+		expect(text).toContain('Button (id: button): A simple button component');
 		expect(text).toContain('  - Primary (button--primary)');
 	});
 
@@ -154,10 +154,10 @@ describe('listAllDocumentationTool', () => {
 			const text = (response.result as any).content[0].text;
 			expect(text).toContain('# Local');
 			expect(text).toContain('id: local');
-			expect(text).toContain('Button (button)');
+			expect(text).toContain('Button (id: button)');
 			expect(text).toContain('# Remote');
 			expect(text).toContain('id: remote');
-			expect(text).toContain('Badge (badge)');
+			expect(text).toContain('Badge (id: badge)');
 
 			getMultiSourceManifestsSpy.mockRestore();
 		});
@@ -239,7 +239,7 @@ describe('listAllDocumentationTool', () => {
 
 			const text = (response.result as any).content[0].text;
 			expect(text).toContain('# Local');
-			expect(text).toContain('Button (button)');
+			expect(text).toContain('Button (id: button)');
 			expect(text).toContain('# Remote');
 			expect(text).toContain('error: Failed to fetch manifest: 401 Unauthorized');
 
@@ -376,9 +376,9 @@ describe('listAllDocumentationTool', () => {
 				    {
 				      "text": "# Components
 
-				- Button (button): A simple button component
-				- Card (card): A container component for grouping related content.
-				- Input (input): A text input component with validation support.
+				- Button (id: button): A simple button component
+				- Card (id: card): A container component for grouping related content.
+				- Input (id: input): A text input component with validation support.
 
 				# Docs
 

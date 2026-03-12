@@ -343,7 +343,7 @@ export type Props = {
 exports[`MarkdownFormatter - formatManifestsToLists > formats the full manifest fixture 1`] = `
 "# Components
 
-- Button (button): A versatile button component for user interactions
-- Card (card): A flexible container component for grouping related content
-- Input (input): A flexible text input component with validation support"
+- Button (id: button): A versatile button component for user interactions
+- Card (id: card): A flexible container component for grouping related content
+- Input (id: input): A flexible text input component with validation support"
 `;

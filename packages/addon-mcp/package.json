@@ -1,5 +1,5 @@
 {
-	"name": "@storybook/addon-mcp",
+	"name": "@magicpatterns/addon-mcp",
 	"version": "0.3.4",
 	"description": "Help agents automatically write and test stories for your UI components",
 	"keywords": [
@@ -33,11 +33,11 @@
 		"build": "tsdown",
 		"inspect": "mcp-inspector --config ../../.mcp.inspect.json --server storybook-addon-mcp",
 		"publint": "publint",
-		"test": "cd ../.. && pnpm vitest --project=@storybook/addon-mcp",
+		"test": "cd ../.. && pnpm vitest --project=@magicpatterns/addon-mcp",
 		"typecheck": "tsc"
 	},
 	"dependencies": {
-		"@storybook/mcp": "workspace:*",
+		"@magicpatterns/mcp": "workspace:*",
 		"@tmcp/adapter-valibot": "catalog:",
 		"@tmcp/transport-http": "catalog:",
 		"picoquery": "^2.5.0",

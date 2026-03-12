@@ -1,4 +1,4 @@
-# @storybook/addon-mcp
+# @magicpatterns/addon-mcp
 
 ## 0.3.4
 
@@ -11,7 +11,7 @@
   The Storybook feature flag has been renamed from `experimentalComponentsManifest` to `componentsManifest` and now defaults to `true` in Storybook core.
 
 - Updated dependencies [[`ff217d8`](https://github.com/storybookjs/mcp/commit/ff217d8d901b3b6ec932613792df17118b452fe3)]:
-  - @storybook/mcp@0.5.1
+  - @magicpatterns/mcp@0.5.1
 
 ## 0.3.3
 
@@ -26,7 +26,7 @@
   This change keeps existing path-based story inputs (`absoluteStoryPath` + `exportName`) while adding a `storyId` input shape for `preview-stories` and `run-story-tests`. It also adds `withStoryIds` to `list-all-documentation` and includes story IDs in `get-documentation` story sections, so agents can discover and reuse IDs directly without extra filesystem lookup steps.
 
 - Updated dependencies [[`b3a8356`](https://github.com/storybookjs/mcp/commit/b3a835605a760cdfb8748c17f6daec8701fb5914), [`6a098f9`](https://github.com/storybookjs/mcp/commit/6a098f96d3da58d572037e07a2aa33dab2a51bfd)]:
-  - @storybook/mcp@0.5.0
+  - @magicpatterns/mcp@0.5.0
 
 ## 0.3.2
 
@@ -40,14 +40,14 @@
   Additionally, if `@storybook/addon-a11y` is configured, the tool returns accessibility violations too.
 
 - Updated dependencies [[`9cf991c`](https://github.com/storybookjs/mcp/commit/9cf991c65e0c67bf85b011ab6ed29dac9cac2cfa)]:
-  - @storybook/mcp@0.4.1
+  - @magicpatterns/mcp@0.4.1
 
 ## 0.3.1
 
 ### Patch Changes
 
 - Updated dependencies [[`c0793d4`](https://github.com/storybookjs/mcp/commit/c0793d4dd9b1895f6f67be21a5bf0339a3458e95)]:
-  - @storybook/mcp@0.4.0
+  - @magicpatterns/mcp@0.4.0
 
 ## 0.3.0
 
@@ -66,7 +66,7 @@
 - [#163](https://github.com/storybookjs/mcp/pull/163) [`68cb213`](https://github.com/storybookjs/mcp/commit/68cb2138f16d4987b5cef1fc85052e583825e896) Thanks [@domazet93](https://github.com/domazet93)! - Fix `preview-stories` failing to find stories in monorepo packages directories.
 
 - Updated dependencies [[`e088e05`](https://github.com/storybookjs/mcp/commit/e088e0501619b29bf7f38ef2ee2b60c8477c803a), [`f9fce2a`](https://github.com/storybookjs/mcp/commit/f9fce2a12b691d1187d8bc719c88e912e27e3391)]:
-  - @storybook/mcp@0.3.0
+  - @magicpatterns/mcp@0.3.0
 
 ## 0.2.3
 
@@ -79,7 +79,7 @@
   This fixes a regression where docs attached to components via `component.docs` in `components.json` were not included in markdown responses. The markdown formatter now emits a `## Docs` section below stories (and before props).
 
 - Updated dependencies [[`b7aeb40`](https://github.com/storybookjs/mcp/commit/b7aeb40c32d831618774c13e316596e9ff840aa7), [`bab8ec9`](https://github.com/storybookjs/mcp/commit/bab8ec9ece4f89661b458fbecd59b0a560948192)]:
-  - @storybook/mcp@0.2.2
+  - @magicpatterns/mcp@0.2.2
 
 ## 0.2.2
 
@@ -115,7 +115,7 @@
 - [#122](https://github.com/storybookjs/mcp/pull/122) [`0254c09`](https://github.com/storybookjs/mcp/commit/0254c091f60ac8b1c69116c936bcb7a1540dc916) Thanks [@JReinhold](https://github.com/JReinhold)! - Log output token count of tool calls to telemetry
 
 - Updated dependencies [[`0254c09`](https://github.com/storybookjs/mcp/commit/0254c091f60ac8b1c69116c936bcb7a1540dc916)]:
-  - @storybook/mcp@0.2.1
+  - @magicpatterns/mcp@0.2.1
 
 ## 0.1.7
 
@@ -124,7 +124,7 @@
 - [#120](https://github.com/storybookjs/mcp/pull/120) [`c1fc816`](https://github.com/storybookjs/mcp/commit/c1fc8167a8077e3bb07bce3c9c22539b23a07a29) Thanks [@JReinhold](https://github.com/JReinhold)! - Add support for docs entries in manifests, sourced by MDX files.
 
 - Updated dependencies [[`c1fc816`](https://github.com/storybookjs/mcp/commit/c1fc8167a8077e3bb07bce3c9c22539b23a07a29)]:
-  - @storybook/mcp@0.2.0
+  - @magicpatterns/mcp@0.2.0
 
 ## 0.1.6
 
@@ -135,7 +135,7 @@
   Valibot 1.1.0 contained 3 security vulnerabilities that are addressed in v1.2.0. This is a non-breaking security patch - no changes required for consumers.
 
 - Updated dependencies [[`e27f6b2`](https://github.com/storybookjs/mcp/commit/e27f6b2a78354f252715ae14dd9de321c9055cda)]:
-  - @storybook/mcp@0.1.1
+  - @magicpatterns/mcp@0.1.1
 
 ## 0.1.5
 
@@ -160,14 +160,14 @@
 - [#59](https://github.com/storybookjs/mcp/pull/59) [`ed0fe09`](https://github.com/storybookjs/mcp/commit/ed0fe09eb2f33b723f50e18fe6e3f6e1ba3d3f80) Thanks [@JReinhold](https://github.com/JReinhold)! - Allow Storybook 10.1.0 prerelases as peer dependencies
 
 - Updated dependencies [[`94c01d2`](https://github.com/storybookjs/mcp/commit/94c01d2c162b5f6a20268957a17eedf7beeb7156), [`9f75d0f`](https://github.com/storybookjs/mcp/commit/9f75d0f0d9c2e24e6ec4078526a6876ebc31f6bb), [`5d18405`](https://github.com/storybookjs/mcp/commit/5d1840506f2ee4f1ae1f757ff133108a046cfc5d), [`a9321a3`](https://github.com/storybookjs/mcp/commit/a9321a33e6ec907eacd876d7ede368fc672d95c6), [`77536a7`](https://github.com/storybookjs/mcp/commit/77536a71812fe111f6b60c84bd2c26cb0eb00bc5), [`cddbf34`](https://github.com/storybookjs/mcp/commit/cddbf34a0c99296856ecfed2c24cf689fcb2fd2a)]:
-  - @storybook/mcp@0.1.0
+  - @magicpatterns/mcp@0.1.0
 
 ## 0.1.4-next.2
 
 ### Patch Changes
 
 - Updated dependencies [[`77536a7`](https://github.com/storybookjs/mcp/commit/77536a71812fe111f6b60c84bd2c26cb0eb00bc5), [`cddbf34`](https://github.com/storybookjs/mcp/commit/cddbf34a0c99296856ecfed2c24cf689fcb2fd2a)]:
-  - @storybook/mcp@0.0.7-next.0
+  - @magicpatterns/mcp@0.0.7-next.0
 
 ## 0.1.4-next.1
 
@@ -198,18 +198,18 @@
 - [#48](https://github.com/storybookjs/mcp/pull/48) [`52be338`](https://github.com/storybookjs/mcp/commit/52be33863c62c703826fa915be7eae656c18a6ed) Thanks [@JReinhold](https://github.com/JReinhold)! - Add possibility to configure toolsets (dev tools vs docs tools) either via addon options or request headers
 
 - Updated dependencies [[`52be338`](https://github.com/storybookjs/mcp/commit/52be33863c62c703826fa915be7eae656c18a6ed), [`2028709`](https://github.com/storybookjs/mcp/commit/20287092a914fb108af1d90d64adf4c604e1a81a)]:
-  - @storybook/mcp@0.0.6
+  - @magicpatterns/mcp@0.0.6
 
 ## 0.1.1
 
 ### Patch Changes
 
-- [#42](https://github.com/storybookjs/mcp/pull/42) [`57a1602`](https://github.com/storybookjs/mcp/commit/57a16022dda428ddc303eec615b5b4c73942144c) Thanks [@JReinhold](https://github.com/JReinhold)! - Log telemetry when the additional @storybook/mcp tools are called
+- [#42](https://github.com/storybookjs/mcp/pull/42) [`57a1602`](https://github.com/storybookjs/mcp/commit/57a16022dda428ddc303eec615b5b4c73942144c) Thanks [@JReinhold](https://github.com/JReinhold)! - Log telemetry when the additional @magicpatterns/mcp tools are called
 
 - [#44](https://github.com/storybookjs/mcp/pull/44) [`140ecc4`](https://github.com/storybookjs/mcp/commit/140ecc4b7845ba86a3d2a0d6aa4c69a5f4c33a78) Thanks [@JReinhold](https://github.com/JReinhold)! - Support Storybook 9.1.16 and up
 
 - Updated dependencies [[`57a1602`](https://github.com/storybookjs/mcp/commit/57a16022dda428ddc303eec615b5b4c73942144c)]:
-  - @storybook/mcp@0.0.5
+  - @magicpatterns/mcp@0.0.5
 
 ## 0.1.0
 
@@ -228,7 +228,7 @@ EDIT: The above is not true anymore, see version [0.1.1](#011) of this package.
 - [#38](https://github.com/storybookjs/mcp/pull/38) [`fc83cd1`](https://github.com/storybookjs/mcp/commit/fc83cd1c7f50cc0d12bc24ed427c5b38fa52acee) Thanks [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)! - include prop types in component documentation tool
 
 - Updated dependencies [[`fc83cd1`](https://github.com/storybookjs/mcp/commit/fc83cd1c7f50cc0d12bc24ed427c5b38fa52acee)]:
-  - @storybook/mcp@0.0.4
+  - @magicpatterns/mcp@0.0.4
 
 ## 0.0.9
 
@@ -251,7 +251,7 @@ EDIT: The above is not true anymore, see version [0.1.1](#011) of this package.
   3. Requires Storybook v10.1 (prereleases), which at the time of writing is available as a canary version `0.0.0-pr-32810-sha-af0645cd`.
 
 - Updated dependencies [[`531a2d4`](https://github.com/storybookjs/mcp/commit/531a2d4be0684c94d516b76d93863337883b2bad), [`ae6ab44`](https://github.com/storybookjs/mcp/commit/ae6ab44e4c4bdf9797facab69c6748bc7a52ba9a)]:
-  - @storybook/mcp@0.0.3
+  - @magicpatterns/mcp@0.0.3
 
 ## 0.0.7
 

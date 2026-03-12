@@ -1,0 +1,37 @@
+.storybook-tooltip__wrapper {
+	position: relative;
+	display: inline-block;
+}
+.storybook-tooltip {
+	font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	position: absolute;
+	z-index: 10;
+	padding: 6px 12px;
+	font-size: 13px;
+	font-weight: 600;
+	color: white;
+	background-color: #333;
+	border-radius: 6px;
+	white-space: nowrap;
+	pointer-events: none;
+}
+.storybook-tooltip--top {
+	bottom: calc(100% + 8px);
+	left: 50%;
+	transform: translateX(-50%);
+}
+.storybook-tooltip--bottom {
+	top: calc(100% + 8px);
+	left: 50%;
+	transform: translateX(-50%);
+}
+.storybook-tooltip--left {
+	right: calc(100% + 8px);
+	top: 50%;
+	transform: translateY(-50%);
+}
+.storybook-tooltip--right {
+	left: calc(100% + 8px);
+	top: 50%;
+	transform: translateY(-50%);
+}

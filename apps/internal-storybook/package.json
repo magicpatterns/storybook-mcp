@@ -1,5 +1,5 @@
 {
-	"name": "@storybook/mcp-internal-storybook",
+	"name": "@magicpatterns/mcp-internal-storybook",
 	"version": "0.0.0",
 	"private": true,
 	"description": "The Storybook used to test the MCP packages in the MCP monorepo",
@@ -15,7 +15,7 @@
 	"devDependencies": {
 		"@storybook/addon-a11y": "catalog:",
 		"@storybook/addon-docs": "catalog:",
-		"@storybook/addon-mcp": "workspace:*",
+		"@magicpatterns/addon-mcp": "workspace:*",
 		"@storybook/addon-themes": "catalog:",
 		"@storybook/addon-vitest": "catalog:",
 		"@storybook/react-vite": "catalog:",

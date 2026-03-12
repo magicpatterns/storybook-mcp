@@ -2,7 +2,7 @@
 applyTo: 'packages/addon-mcp/**'
 ---
 
-# Copilot Instructions for @storybook/addon-mcp
+# Copilot Instructions for @magicpatterns/addon-mcp
 
 ## Project Overview
 
@@ -31,6 +31,10 @@ The addon supports two toolsets that can be enabled/disabled:
 2. **`docs`** (default: true)
    - `list-all-documentation`: List all available components from manifest
    - `get-documentation`: Get detailed component documentation
+   - `get-documentation-for-story`: Get documentation for a specific story variant
+   - `read-component-code`: Read the source code of a component's implementation file
+   - `get-design-tokens`: Extract design tokens (colors, typography, etc.) from CSS files
+   - `get-design-guidelines`: Retrieve foundational design documentation from MDX/Markdown files
 
 **Configuration Methods:**
 
@@ -38,7 +42,7 @@ The addon supports two toolsets that can be enabled/disabled:
 
 ```typescript
 {
-	name: '@storybook/addon-mcp',
+	name: '@magicpatterns/addon-mcp',
 	options: {
 		toolsets: {
 			dev: true,
@@ -81,6 +85,9 @@ src/
   tools/
     preview-stories.ts             # Tool to retrieve story preview URLs from Storybook
     get-storybook-story-instructions.ts # Tool to provide UI development guidelines
+    get-design-tokens.ts           # Tool to extract design tokens from CSS files
+    get-design-guidelines.ts       # Tool to retrieve foundational design documentation
+    tool-names.ts                  # Tool name constants to avoid circular dependencies
   utils/
     errors.ts                      # Error handling utilities
     fetch-story-index.ts           # Utility to fetch Storybook's index.json
@@ -89,7 +96,7 @@ src/
 ### Key Design Patterns
 
 1. **Vite Plugin Workaround**: Uses `viteFinal` preset hook to inject middleware (Storybook has no native addon API for server middleware)
-2. **Factory Pattern**: `createAddonMcpHandler()` creates configured handler instances following the pattern from `@storybook/mcp`
+2. **Factory Pattern**: `createAddonMcpHandler()` creates configured handler instances following the pattern from `@magicpatterns/mcp`
 3. **Context-Based Architecture**: AddonContext provides Storybook options, origin URL, and client info to all tools
 4. **Tool Registration**: Tools are async functions that register with `server.tool()` and receive typed input
 5. **Framework Detection**: Uses Storybook's preset system to detect framework and customize instructions
@@ -262,6 +269,9 @@ Tests run automatically on PRs and main branch pushes via `.github/workflows/che
 - `src/types.ts` - Valibot schemas and AddonContext interface
 - `src/tools/preview-stories.ts` - Tool to preview stories from Storybook
 - `src/tools/get-storybook-story-instructions.ts` - Tool to provide framework-specific UI instructions
+- `src/tools/get-design-tokens.ts` - Tool to extract design tokens from CSS files
+- `src/tools/get-design-guidelines.ts` - Tool to retrieve foundational design documentation
+- `src/tools/tool-names.ts` - Tool name constants to avoid circular dependencies
 - `src/utils/errors.ts` - Error handling utilities
 - `src/utils/fetch-story-index.ts` - Utility to fetch Storybook's story index
 - `src/ui-building-instructions.md` - Template for UI development instructions
@@ -424,7 +434,7 @@ The addon collects anonymous usage data:
 
 **For addon-specific tools**: Telemetry is collected directly in the tool implementation using `collectTelemetry()`.
 
-**For reused tools from `@storybook/mcp`**: The addon uses optional handlers (`onListAllDocumentation`, `onGetDocumentation`) provided by the `StorybookContext` to track usage. These handlers are passed in the context when calling `transport.respond()` in `mcp-handler.ts`:
+**For reused tools from `@magicpatterns/mcp`**: The addon uses optional handlers (`onListAllDocumentation`, `onGetDocumentation`) provided by the `StorybookContext` to track usage. These handlers are passed in the context when calling `transport.respond()` in `mcp-handler.ts`:
 
 ```typescript
 const addonContext: AddonContext = {
@@ -478,7 +488,9 @@ pnpm test run --coverage  # With coverage report
 - `src/utils/fetch-story-index.test.ts` - Tests story index fetching
 - `src/tools/preview-stories.test.ts` - Tests story preview tool
 - `src/tools/get-storybook-story-instructions.test.ts` - Tests UI instructions tool
-- `src/mcp-handler.test.ts` - Tests HTTP conversion utilities
+- `src/tools/get-design-tokens.test.ts` - Tests design tokens extraction tool
+- `src/tools/get-design-guidelines.test.ts` - Tests design guidelines tool
+- `src/mcp-handler.test.ts` - Tests HTTP conversion utilities and tool registration
 
 ### Integration Testing
 
@@ -505,7 +517,7 @@ pnpm changeset        # Create a changeset
 pnpm release          # Build and publish to npm (from root)
 ```
 
-Published to npm as `@storybook/addon-mcp`.
+Published to npm as `@magicpatterns/addon-mcp`.
 
 ## Package Configuration
 
@@ -551,7 +563,7 @@ The `preset.js` file at the root re-exports the compiled preset from `dist/`.
 - `vite` - Dev server (peer dependency via Storybook)
 - `storybook` - Storybook core (peer dependency)
 
-**Note**: This addon shares the same MCP architecture as `@storybook/mcp` package but is specifically designed to run within a Storybook dev server environment. The main difference is the integration layer - this addon uses Vite middleware while the standalone package provides a pure HTTP handler.
+**Note**: This addon shares the same MCP architecture as `@magicpatterns/mcp` package but is specifically designed to run within a Storybook dev server environment. The main difference is the integration layer - this addon uses Vite middleware while the standalone package provides a pure HTTP handler.
 
 ## Documentation Resources
 

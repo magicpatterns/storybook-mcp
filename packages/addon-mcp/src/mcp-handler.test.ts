@@ -272,7 +272,7 @@ describe('mcpServerHandler', () => {
 					tools: { listChanged: true },
 				},
 				serverInfo: {
-					name: '@storybook/addon-mcp',
+					name: '@magicpatterns/addon-mcp',
 					description: 'Help agents automatically write and test stories for your UI components',
 				},
 			},
@@ -341,6 +341,7 @@ describe('mcpServerHandler', () => {
 			'Follow these workflows when working with UI and/or Storybook.',
 		);
 		expect(parsedResponse.result.instructions).toContain('## Documentation Workflow');
+		expect(parsedResponse.result.instructions).toContain('## Design System Workflow');
 		expect(parsedResponse.result.instructions).toContain('## Verification Rules');
 		expect(parsedResponse.result.instructions).toContain('## Multi-Source Requests');
 		expect(parsedResponse.result.instructions).not.toContain(
@@ -392,7 +393,7 @@ describe('mcpServerHandler', () => {
 		expect(telemetry).not.toHaveBeenCalled();
 	});
 
-	it('should register tools from @storybook/mcp when feature flag and generator are enabled', async () => {
+	it('should register tools from @magicpatterns/mcp when feature flag and generator are enabled', async () => {
 		const applyMock = vi.fn(async (key: string, defaultValue?: any) => {
 			if (key === 'core') {
 				return { disableTelemetry: false };
@@ -463,6 +464,9 @@ describe('mcpServerHandler', () => {
 		expect(toolNames).toContain('list-all-documentation');
 		expect(toolNames).toContain('get-documentation');
 		expect(toolNames).toContain('get-documentation-for-story');
+		expect(toolNames).toContain('read-component-code');
+		expect(toolNames).toContain('get-design-tokens');
+		expect(toolNames).toContain('get-design-guidelines');
 	});
 });
 

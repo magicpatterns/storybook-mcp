@@ -1,0 +1,30 @@
+.storybook-spinner {
+	display: inline-block;
+}
+.storybook-spinner__circle {
+	display: block;
+	border: 3px solid var(--color-border-strong, #e1e5e9);
+	border-top-color: var(--color-primary, #1ea7fd);
+	border-radius: 50%;
+	animation: storybook-spin 0.8s linear infinite;
+}
+.storybook-spinner--small .storybook-spinner__circle {
+	width: 16px;
+	height: 16px;
+	border-width: 2px;
+}
+.storybook-spinner--medium .storybook-spinner__circle {
+	width: 28px;
+	height: 28px;
+	border-width: 3px;
+}
+.storybook-spinner--large .storybook-spinner__circle {
+	width: 44px;
+	height: 44px;
+	border-width: 4px;
+}
+@keyframes storybook-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}

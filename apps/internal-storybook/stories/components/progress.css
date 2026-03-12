@@ -1,0 +1,51 @@
+.storybook-progress {
+	font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	max-width: 320px;
+}
+.storybook-progress__header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 6px;
+}
+.storybook-progress__label {
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--color-text, #333);
+}
+.storybook-progress__value {
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--color-text-secondary, #666);
+}
+.storybook-progress__track {
+	width: 100%;
+	background-color: var(--color-bg-secondary, #f0f0f0);
+	border-radius: 999px;
+	overflow: hidden;
+}
+.storybook-progress__track--small {
+	height: 4px;
+}
+.storybook-progress__track--medium {
+	height: 8px;
+}
+.storybook-progress__track--large {
+	height: 14px;
+}
+.storybook-progress__fill {
+	height: 100%;
+	border-radius: 999px;
+	transition: width 0.3s ease;
+}
+.storybook-progress__fill--default {
+	background-color: var(--color-primary, #1ea7fd);
+}
+.storybook-progress__fill--success {
+	background-color: #1a7f1a;
+}
+.storybook-progress__fill--warning {
+	background-color: #b36b00;
+}
+.storybook-progress__fill--error {
+	background-color: #cc1a1a;
+}

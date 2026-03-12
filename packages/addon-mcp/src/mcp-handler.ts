@@ -4,15 +4,19 @@ import { HttpTransport } from '@tmcp/transport-http';
 import pkgJson from '../package.json' with { type: 'json' };
 import { addPreviewStoriesTool } from './tools/preview-stories.ts';
 import { addGetUIBuildingInstructionsTool } from './tools/get-storybook-story-instructions.ts';
+import { addGetDesignTokensTool } from './tools/get-design-tokens.ts';
+import { addGetDesignGuidelinesTool } from './tools/get-design-guidelines.ts';
 import {
 	addListAllDocumentationTool,
 	addGetDocumentationTool,
 	addGetStoryDocumentationTool,
+	addReadComponentCodeTool,
 	type Source,
-} from '@storybook/mcp';
+} from '@magicpatterns/mcp';
 import type { Options } from 'storybook/internal/types';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { buffer } from 'node:stream/consumers';
+import * as fs from 'node:fs/promises';
 import { collectTelemetry } from './telemetry.ts';
 import type { AddonContext, AddonOptionsOutput } from './types.ts';
 import { logger } from 'storybook/internal/node-logger';
@@ -85,6 +89,9 @@ const initializeMCPServer = async (options: Options, multiSource?: boolean) => {
 		await addListAllDocumentationTool(server, contextAwareEnabled);
 		await addGetDocumentationTool(server, contextAwareEnabled, { multiSource });
 		await addGetStoryDocumentationTool(server, contextAwareEnabled, { multiSource });
+		await addReadComponentCodeTool(server, contextAwareEnabled, { multiSource });
+		await addGetDesignTokensTool(server);
+		await addGetDesignGuidelinesTool(server);
 	}
 
 	transport = new HttpTransport(server, { path: null });
@@ -145,6 +152,15 @@ export const mcpServerHandler = async ({
 		request: webRequest,
 		sources,
 		manifestProvider,
+		fileReader: async (relativePath: string) => {
+			try {
+				const { resolve } = await import('node:path');
+				const fullPath = resolve(process.cwd(), relativePath);
+				return await fs.readFile(fullPath, 'utf-8');
+			} catch {
+				return undefined;
+			}
+		},
 		// Telemetry handlers for component manifest tools
 		...(!disableTelemetry && {
 			onListAllDocumentation: async ({ manifests, resultText, sources: sourceManifests }) => {

@@ -13,7 +13,7 @@ const STORYBOOK_DEV_PACKAGES = [
 	'storybook@catalog:trials',
 	'@storybook/addon-docs@catalog:trials',
 	'@storybook/addon-a11y@catalog:trials',
-	'@storybook/addon-mcp@workspace:*',
+	'@magicpatterns/addon-mcp@workspace:*',
 	'@storybook/addon-vitest@catalog:trials',
 	'@storybook/react-vite@catalog:trials',
 ];
@@ -46,7 +46,7 @@ export async function prepareTrial(trialArgs: TrialArgs): Promise<PrepareTrialRe
 		with: { type: 'json' },
 	});
 	packageJson.name =
-		`@storybook/mcp-task--${trialArgs.taskName}--${path.basename(trialArgs.trialPath)}`.toLowerCase();
+		`@magicpatterns/mcp-task--${trialArgs.taskName}--${path.basename(trialArgs.trialPath)}`.toLowerCase();
 
 	await fs.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2));
 

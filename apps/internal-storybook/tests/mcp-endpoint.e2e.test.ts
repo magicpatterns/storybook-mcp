@@ -66,7 +66,7 @@ describe('MCP Endpoint E2E Tests', () => {
 						tools: { listChanged: true },
 					},
 					serverInfo: {
-						name: '@storybook/addon-mcp',
+						name: '@magicpatterns/addon-mcp',
 						description: expect.stringContaining('agents'),
 					},
 				},
@@ -100,7 +100,7 @@ describe('MCP Endpoint E2E Tests', () => {
 
 			expect(response.result).toHaveProperty('tools');
 			// Dev, docs, and test tools should be present
-			expect(response.result.tools).toHaveLength(6);
+			expect(response.result.tools).toHaveLength(9);
 
 			expect(response.result.tools).toMatchInlineSnapshot(`
 				[
@@ -540,6 +540,50 @@ describe('MCP Endpoint E2E Tests', () => {
 				    "name": "get-documentation-for-story",
 				    "title": "Get Documentation for Story",
 				  },
+				  {
+				    "description": "Read the actual source code of a UI component. Accepts either a componentId or a storyId to identify the component. Returns the full source file contents for the component's implementation file.
+
+				Use this when you need to understand how a component is implemented, not just its documentation or story snippets.",
+				    "inputSchema": {
+				      "$schema": "http://json-schema.org/draft-07/schema#",
+				      "properties": {
+				        "componentId": {
+				          "description": "The component ID (e.g., "button"). Use list-all-documentation to discover IDs. Provide either componentId or storyId.",
+				          "type": "string",
+				        },
+				        "storyId": {
+				          "description": "A story ID (e.g., "button--primary"). The parent component's source code will be returned. Provide either componentId or storyId.",
+				          "type": "string",
+				        },
+				      },
+				      "required": [],
+				      "type": "object",
+				    },
+				    "name": "read-component-code",
+				    "title": "Read Component Code",
+				  },
+				  {
+				    "description": "Returns design tokens (colors, typography, spacing, and other CSS custom properties) extracted from the Storybook project's CSS files and preview configuration.
+
+				Scans the project's theme/token CSS files for CSS custom properties and categorizes them into colors, typography, and other tokens. Useful for understanding the design system's visual foundation.",
+				    "inputSchema": {
+				      "properties": {},
+				      "type": "object",
+				    },
+				    "name": "get-design-tokens",
+				    "title": "Get Design Tokens",
+				  },
+				  {
+				    "description": "Returns design guidelines and foundational documentation from the Storybook project.
+
+				Scans the project's story directories for standalone MDX/Markdown files that contain introductory content, theming guides, design principles, and other foundational documentation. Returns the content of files matching guideline-like names (e.g., getting-started, theming, foundations, guidelines, overview).",
+				    "inputSchema": {
+				      "properties": {},
+				      "type": "object",
+				    },
+				    "name": "get-design-guidelines",
+				    "title": "Get Design Guidelines",
+				  },
 				]
 			`);
 		});
@@ -912,6 +956,9 @@ describe('MCP Endpoint E2E Tests', () => {
 				  "list-all-documentation",
 				  "get-documentation",
 				  "get-documentation-for-story",
+				  "read-component-code",
+				  "get-design-tokens",
+				  "get-design-guidelines",
 				]
 			`);
 		});

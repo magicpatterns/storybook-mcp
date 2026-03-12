@@ -18,6 +18,194 @@
 	--color-link: #1ea7fd;
 	--color-card-shadow: rgba(0, 0, 0, 0.1);
 	--color-logo-bg: #ffffff;
+
+	/* ── Design System Tokens ── */
+
+	/* Background */
+	--ds-bg-primary: #FFFFFF;
+	--ds-bg-secondary: #F9F9F9;
+	--ds-bg-tertiary: #EFF0F0;
+	--ds-bg-dark: #2B2E32;
+	--ds-bg-brand: #1873D2;
+	--ds-bg-brand-light: #F2FBFE;
+	--ds-bg-brand-dark: #0D3365;
+
+	/* Text */
+	--ds-text-primary: #2B2E32;
+	--ds-text-secondary: #595C5F;
+	--ds-text-on-color: #FFFFFF;
+	--ds-text-placeholder: #929497;
+	--ds-text-helper: #595C5F;
+	--ds-text-disabled: #C8C9CA;
+	--ds-text-brand: #1873D2;
+	--ds-text-error: #9D0000;
+	--ds-text-warning: #9A4200;
+	--ds-text-success: #007249;
+
+	/* Button */
+	--ds-button-brand: #1873D2;
+	--ds-button-primary-hover: #145FAD;
+	--ds-button-filled-active: #10498C;
+	--ds-button-outline-border: #1873D2;
+	--ds-button-secondary-hover: #E6E6E6;
+	--ds-button-secondary-active: #DCDCDC;
+	--ds-button-disabled: #DCDCDC;
+
+	/* Border */
+	--ds-border-interactive: #1873D2;
+	--ds-border-disabled: #C8C9CA;
+	--ds-border-light-1: #E6E6E6;
+	--ds-border-light-2: #DCDCDC;
+	--ds-border-light-3: #C8C9CA;
+	--ds-border-bold-1: #B1B3B5;
+	--ds-border-bold-2: #737679;
+	--ds-border-bold-3: #43484C;
+
+	/* Icon */
+	--ds-icon-primary: #2B2E32;
+	--ds-icon-secondary: #737679;
+	--ds-icon-hover-bg: #EFF0F0;
+	--ds-icon-on-color: #FFFFFF;
+	--ds-icon-brand: #1873D2;
+	--ds-icon-brand-dark: #10498C;
+	--ds-icon-disabled: #C8C9CA;
+
+	/* Link */
+	--ds-link-primary: #1873D2;
+	--ds-link-primary-hover: #145FAD;
+	--ds-link-visited: #833394;
+
+	/* Support: Info */
+	--ds-info-light: #F2FBFE;
+	--ds-info-standard: #1873D2;
+	--ds-info-dark: #10498C;
+
+	/* Support: Alert */
+	--ds-alert-light: #FFEBE7;
+	--ds-alert-standard: #EA483B;
+	--ds-alert-dark: #9D0000;
+
+	/* Support: Warning */
+	--ds-warning-light: #FFF2DC;
+	--ds-warning-standard: #BD5B00;
+	--ds-warning-dark: #9A4200;
+
+	/* Support: Success */
+	--ds-success-light: #EFFDF7;
+	--ds-success-standard: #13865A;
+	--ds-success-dark: #005D36;
+
+	/* Navigation */
+	--ds-nav-primary-bg: #FFFFFF;
+	--ds-nav-secondary-bg: #EFF0F0;
+	--ds-nav-brand-accent: #145FAD;
+	--ds-nav-text: #2B2E32;
+	--ds-nav-icon: #2B2E32;
+	--ds-nav-divider: #E6E6E6;
+
+	/* Brand Scale */
+	--ds-brand-050: #F2FBFE;
+	--ds-brand-100: #D9F5FF;
+	--ds-brand-200: #B8E9FB;
+	--ds-brand-300: #7FC9F4;
+	--ds-brand-400: #3895E1;
+	--ds-brand-500: #1873D2;
+	--ds-brand-600: #145FAD;
+	--ds-brand-700: #10498C;
+	--ds-brand-800: #0D3365;
+	--ds-brand-900: #091D3E;
+
+	/* Neutral Scale */
+	--ds-neutral-000: #FFFFFF;
+	--ds-neutral-025: #F9F9F9;
+	--ds-neutral-050: #EFF0F0;
+	--ds-neutral-100: #E6E6E6;
+	--ds-neutral-200: #DCDCDC;
+	--ds-neutral-300: #C8C9CA;
+	--ds-neutral-400: #B1B3B5;
+	--ds-neutral-500: #929497;
+	--ds-neutral-600: #737679;
+	--ds-neutral-700: #595C5F;
+	--ds-neutral-800: #43484C;
+	--ds-neutral-900: #2B2E32;
+	--ds-neutral-1000: #1E2124;
+
+	/* Accent: Citrus */
+	--ds-citrus-050: #FFF2DC;
+	--ds-citrus-100: #FDE1B1;
+	--ds-citrus-200: #FFBB63;
+	--ds-citrus-300: #FFA037;
+	--ds-citrus-400: #F68511;
+	--ds-citrus-500: #E46F00;
+	--ds-citrus-600: #BD5B00;
+	--ds-citrus-700: #9A4200;
+	--ds-citrus-800: #7A2F00;
+	--ds-citrus-900: #612300;
+
+	/* Accent: Cardinal */
+	--ds-cardinal-050: #FFEBE7;
+	--ds-cardinal-100: #FADAD7;
+	--ds-cardinal-200: #F6B5B0;
+	--ds-cardinal-300: #F29189;
+	--ds-cardinal-400: #EE6C62;
+	--ds-cardinal-500: #EA483B;
+	--ds-cardinal-600: #C62F23;
+	--ds-cardinal-700: #9D0000;
+	--ds-cardinal-800: #800000;
+	--ds-cardinal-900: #600000;
+
+	/* Accent: Rose */
+	--ds-rose-050: #FFF3F7;
+	--ds-rose-100: #FFEAF1;
+	--ds-rose-200: #FFC3D9;
+	--ds-rose-300: #FF95BD;
+	--ds-rose-400: #E55491;
+	--ds-rose-500: #C82269;
+	--ds-rose-600: #B21659;
+	--ds-rose-700: #A50952;
+	--ds-rose-800: #77003A;
+	--ds-rose-900: #58002B;
+
+	/* Accent: Plum */
+	--ds-plum-050: #F5E6F7;
+	--ds-plum-100: #E8D6EC;
+	--ds-plum-200: #DEC2E4;
+	--ds-plum-300: #CCA3D4;
+	--ds-plum-400: #B376BE;
+	--ds-plum-500: #954DA4;
+	--ds-plum-600: #833394;
+	--ds-plum-700: #6B2E76;
+	--ds-plum-800: #522A5A;
+	--ds-plum-900: #462B4C;
+
+	/* Accent: Seafoam */
+	--ds-seafoam-050: #DDF7F5;
+	--ds-seafoam-100: #C5F4F0;
+	--ds-seafoam-200: #A8E3DF;
+	--ds-seafoam-300: #37CBC5;
+	--ds-seafoam-400: #27ACA7;
+	--ds-seafoam-500: #008D85;
+	--ds-seafoam-600: #007772;
+	--ds-seafoam-700: #00635F;
+	--ds-seafoam-800: #0C4F4C;
+	--ds-seafoam-900: #123C3A;
+
+	/* Accent: Leaf */
+	--ds-leaf-050: #EFFDF7;
+	--ds-leaf-100: #CEF8E0;
+	--ds-leaf-200: #89ECBC;
+	--ds-leaf-300: #49CC93;
+	--ds-leaf-400: #2FB880;
+	--ds-leaf-500: #15A46E;
+	--ds-leaf-600: #13865A;
+	--ds-leaf-700: #007249;
+	--ds-leaf-800: #005D36;
+	--ds-leaf-900: #053F27;
+
+	/* Typography */
+	--ds-font-heading: 'Plus Jakarta Sans', sans-serif;
+	--ds-font-body: 'Inter', sans-serif;
+	--ds-font-code: 'JetBrains Mono', monospace;
 }
 
 /* Dark theme */

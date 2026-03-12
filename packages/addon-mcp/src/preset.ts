@@ -9,7 +9,7 @@ import htmlTemplate from './template.html';
 import path from 'node:path';
 import { CompositionAuth, extractBearerToken, type ComposedRef } from './auth/index.ts';
 import { logger } from 'storybook/internal/node-logger';
-import type { Source } from '@storybook/mcp';
+import type { Source } from '@magicpatterns/mcp';
 
 export const previewAnnotations: PresetPropertyFn<'previewAnnotations'> = async (
 	existingAnnotations = [],

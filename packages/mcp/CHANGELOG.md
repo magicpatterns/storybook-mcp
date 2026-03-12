@@ -1,4 +1,4 @@
-# @storybook/mcp
+# @magicpatterns/mcp
 
 ## 0.5.1
 
@@ -14,7 +14,7 @@
 
 - [#171](https://github.com/storybookjs/mcp/pull/171) [`b3a8356`](https://github.com/storybookjs/mcp/commit/b3a835605a760cdfb8748c17f6daec8701fb5914) Thanks [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)! - Export `addGetStoryDocumentationTool` directly instead of renaming it to `addGetComponentStoryDocumentationTool`.
 
-  **Breaking change**: If you were importing `addGetComponentStoryDocumentationTool` from `@storybook/mcp`, update your import to use `addGetStoryDocumentationTool` instead.
+  **Breaking change**: If you were importing `addGetComponentStoryDocumentationTool` from `@magicpatterns/mcp`, update your import to use `addGetStoryDocumentationTool` instead.
 
 ### Patch Changes
 
@@ -72,7 +72,7 @@
 
   # Breaking Changes
 
-  This change introduces a number of minor breaking changes to `@storybook/mcp`:
+  This change introduces a number of minor breaking changes to `@magicpatterns/mcp`:
 
   1. The lower level tool adder functions have been renamed:
   2. `addGetComponentDocumentationTool` -> `addGetDocumentationTool`

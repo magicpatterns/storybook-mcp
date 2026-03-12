@@ -1,0 +1,81 @@
+# Welcome to my Design System
+
+_Welcome to the Design System._
+
+This system is a comprehensive toolkit that brings together guidelines, components, and resources to simplify and streamline the design process. Acting as the single source of truth, it ensures brand consistency across products and platforms. By centralizing design principles, reusable components, and detailed documentation, the Design System enhances efficiency, reduces redundancy, and supports the creation of cohesive user-centric experiences. It empowers teams to build scalable designs while minimizing inconsistencies, making it an essential asset for delivering high-quality digital products.
+
+---
+
+## Atomic Design Principles
+
+_Atomic Design is a methodology that breaks down UI components into smaller, more manageable building blocks. Inspired by chemistry, it categorizes components into five levels: atoms, molecules, organisms, templates, and pages. Each level represents a different stage of complexity, starting with the smallest, most basic elements (atoms) and building up to fully functional UI structures (pages)._
+
+_By applying Atomic Design principles, we gain a deeper understanding of how components break down and fit together. This approach promotes reusability, consistency, and scalability, making it easier to design and maintain a cohesive system. It helps us create a flexible, organized design system where each component can be independently modified or reused without disrupting the overall user experience._
+
+---
+
+### Atomic Design Levels
+
+| Level | Description |
+| --- | --- |
+| **Atoms** | Basic building blocks — buttons, inputs, labels, icons |
+| **Molecules** | Groups of atoms — form fields, search bars, menu items |
+| **Organisms** | Complex UI sections — headers, cards, data tables |
+| **Templates** | Page-level layouts composed of organisms |
+| **Pages** | Specific instances of templates with real content |
+
+---
+
+## Design Tokens
+
+The design system uses a comprehensive token system:
+
+### Color Palette
+
+- **Brand** — 10-step blue scale (`050`–`900`) anchored at `#1873D2`
+- **Neutral** — 13-step gray scale (`000`–`1000`) from white to near-black
+- **Accent** — Six 10-step scales: Citrus, Cardinal, Rose, Plum, Seafoam, Leaf
+- **Semantic** — Info, Alert, Warning, Success with light/standard/dark variants
+- **Functional** — Background, text, button, border, icon, link, and navigation tokens
+
+See the [Colors](?path=/story/tokens-colors--colors) story for the full palette.
+
+### Typography
+
+Three font families with distinct roles:
+
+| Role | Font | Usage |
+| --- | --- | --- |
+| **Heading** | Plus Jakarta Sans | H1–H3 (700 weight) |
+| **Body** | Inter | H4–H7, subtitles, body, buttons, captions (400/600/700) |
+| **Code** | JetBrains Mono | Code blocks and inline code (400) |
+
+See the [Typography](?path=/story/tokens-typography--typography) story for the full type scale.
+
+---
+
+## Contributing
+
+### Setup & Environment
+- Ensure you have the latest version of Node.js
+- Run `npm install` to install dependencies
+- Confirm Storybook runs locally with `npm run storybook`
+
+### Writing Stories
+- Use `Meta` and `StoryObj` from `@storybook/react-vite`
+- Include at least a default story and a variant story
+- Use `args` to control props and enable Storybook Controls
+- Add meaningful `title` in the story metadata
+
+### Design Tokens & Theming
+- Use design tokens from the system (CSS custom properties prefixed with `--ds-`)
+- Ensure components respect the theme
+
+### Accessibility & Testing
+- Run the a11y addon to check for accessibility issues
+- Add unit tests or visual regression tests where applicable
+
+### Code Quality
+- Follow the project's ESLint and Prettier rules
+- Use TypeScript and define prop types clearly
+- Avoid hardcoded styles — use tokens
