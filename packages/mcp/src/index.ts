@@ -22,11 +22,20 @@ export {
 	addReadComponentCodeTool,
 	READ_COMPONENT_CODE_TOOL_NAME,
 } from './tools/read-component-code.ts';
+export {
+	addGetDesignTokensTool,
+	GET_DESIGN_TOKENS_TOOL_NAME,
+} from './tools/get-design-tokens.ts';
+export {
+	addGetDesignGuidelinesTool,
+	GET_DESIGN_GUIDELINES_TOOL_NAME,
+} from './tools/get-design-guidelines.ts';
 
 // Export manifest constants and utilities
 export {
 	COMPONENT_MANIFEST_PATH,
 	DOCS_MANIFEST_PATH,
+	getManifests,
 	getMultiSourceManifests,
 } from './utils/get-manifest.ts';
 

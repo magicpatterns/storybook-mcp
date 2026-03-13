@@ -4,13 +4,13 @@ import { HttpTransport } from '@tmcp/transport-http';
 import pkgJson from '../package.json' with { type: 'json' };
 import { addPreviewStoriesTool } from './tools/preview-stories.ts';
 import { addGetUIBuildingInstructionsTool } from './tools/get-storybook-story-instructions.ts';
-import { addGetDesignTokensTool } from './tools/get-design-tokens.ts';
-import { addGetDesignGuidelinesTool } from './tools/get-design-guidelines.ts';
 import {
 	addListAllDocumentationTool,
 	addGetDocumentationTool,
 	addGetStoryDocumentationTool,
 	addReadComponentCodeTool,
+	addGetDesignTokensTool,
+	addGetDesignGuidelinesTool,
 	type Source,
 } from '@alexanderlee/mcp';
 import type { Options } from 'storybook/internal/types';
@@ -90,8 +90,8 @@ const initializeMCPServer = async (options: Options, multiSource?: boolean) => {
 		await addGetDocumentationTool(server, contextAwareEnabled, { multiSource });
 		await addGetStoryDocumentationTool(server, contextAwareEnabled, { multiSource });
 		await addReadComponentCodeTool(server, contextAwareEnabled, { multiSource });
-		await addGetDesignTokensTool(server);
-		await addGetDesignGuidelinesTool(server);
+		await addGetDesignTokensTool(server, contextAwareEnabled);
+		await addGetDesignGuidelinesTool(server, contextAwareEnabled);
 	}
 
 	transport = new HttpTransport(server, { path: null });
@@ -150,6 +150,8 @@ export const mcpServerHandler = async ({
 		disableTelemetry: disableTelemetry!,
 		a11yEnabled,
 		request: webRequest,
+		configDir: options.configDir ?? undefined,
+		storiesResolver: () => options.presets.apply('stories', []),
 		sources,
 		manifestProvider,
 		fileReader: async (relativePath: string) => {
@@ -157,6 +159,16 @@ export const mcpServerHandler = async ({
 				const { resolve } = await import('node:path');
 				const fullPath = resolve(process.cwd(), relativePath);
 				return await fs.readFile(fullPath, 'utf-8');
+			} catch {
+				return undefined;
+			}
+		},
+		storyHtmlFetcher: async (storyId: string) => {
+			try {
+				const url = `${origin}/iframe.html?id=${encodeURIComponent(storyId)}&viewMode=story`;
+				const response = await fetch(url);
+				if (!response.ok) return undefined;
+				return await response.text();
 			} catch {
 				return undefined;
 			}
