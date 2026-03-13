@@ -1,10 +1,10 @@
 import type { McpServer } from 'tmcp';
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
-import { errorToMCPContent, getManifests } from '../utils/get-manifest.ts';
-import type { StorybookContext } from '../types.ts';
-
-export const GET_DESIGN_TOKENS_TOOL_NAME = 'get-design-tokens';
+import { collectTelemetry } from '../telemetry.ts';
+import { errorToMCPContent } from '../utils/errors.ts';
+import type { AddonContext } from '../types.ts';
+import { GET_DESIGN_TOKENS_TOOL_NAME } from './tool-names.ts';
 
 type ColorToken = {
 	name: string;
@@ -121,6 +121,9 @@ function categorizeTokens(blocks: TokenBlock[]): {
 	};
 }
 
+/**
+ * Extract CSS import paths from a preview config file.
+ */
 function extractCSSImports(fileContent: string, filePath: string): string[] {
 	const imports: string[] = [];
 	const importRegex = /import\s+['"]([^'"]+\.css)['"]/g;
@@ -216,70 +219,7 @@ function formatDesignTokens(tokens: DesignTokens): string {
 	return parts.join('\n').trim();
 }
 
-const TOKEN_NAME_PATTERN = /tokens?/i;
-
-function isTokenEntry(id: string, title: string): boolean {
-	return TOKEN_NAME_PATTERN.test(id) || TOKEN_NAME_PATTERN.test(title);
-}
-
-/**
- * Fallback: search the component and docs manifests for entries with "token(s)" in their ID or title.
- */
-async function findTokenComponentsFallback(
-	server: McpServer<any, StorybookContext>,
-): Promise<string | undefined> {
-	try {
-		const ctx = server.ctx.custom;
-		const { request, manifestProvider } = ctx ?? {};
-
-		const { componentManifest, docsManifest } = await getManifests(request, manifestProvider);
-
-		const parts: string[] = [];
-
-		if (docsManifest) {
-			for (const doc of Object.values(docsManifest.docs)) {
-				if (isTokenEntry(doc.id, doc.title)) {
-					parts.push(`## ${doc.title}`);
-					parts.push('');
-					parts.push(doc.content);
-					parts.push('');
-				}
-			}
-		}
-
-		for (const component of Object.values(componentManifest.components)) {
-			if (isTokenEntry(component.id, component.name)) {
-				parts.push(`## ${component.name}`);
-				parts.push('');
-				if (component.description) {
-					parts.push(component.description);
-					parts.push('');
-				}
-				if (component.docs) {
-					for (const doc of Object.values(component.docs)) {
-						if (doc.content.trim().length > 0) {
-							parts.push(doc.content);
-							parts.push('');
-						}
-					}
-				}
-			}
-		}
-
-		if (parts.length === 0) {
-			return undefined;
-		}
-
-		return ['# Design Tokens', '', ...parts].join('\n').trim();
-	} catch {
-		return undefined;
-	}
-}
-
-export async function addGetDesignTokensTool(
-	server: McpServer<any, StorybookContext>,
-	enabled?: Parameters<McpServer<any, StorybookContext>['tool']>[0]['enabled'],
-) {
+export async function addGetDesignTokensTool(server: McpServer<any, AddonContext>) {
 	server.tool(
 		{
 			name: GET_DESIGN_TOKENS_TOOL_NAME,
@@ -287,74 +227,78 @@ export async function addGetDesignTokensTool(
 			description: `Returns design tokens (colors, typography, spacing, and other CSS custom properties) extracted from the Storybook project's CSS files and preview configuration.
 
 Scans the project's theme/token CSS files for CSS custom properties and categorizes them into colors, typography, and other tokens. Useful for understanding the design system's visual foundation.`,
-			enabled,
+			enabled: () => server.ctx.custom?.toolsets?.docs ?? true,
 		},
 		async () => {
 			try {
-				const ctx = server.ctx.custom;
-				const configDir = ctx?.configDir;
+				const { options, disableTelemetry } = server.ctx.custom ?? {};
+				if (!options) {
+					throw new Error('Options are required in addon context');
+				}
 
+				if (!disableTelemetry) {
+					await collectTelemetry({
+						event: 'tool:getDesignTokens',
+						server,
+						toolset: 'docs',
+					});
+				}
+
+				const configDir = options.configDir ?? path.join(process.cwd(), '.storybook');
 				const allBlocks: TokenBlock[] = [];
 				const sourceFiles: string[] = [];
 
-				if (configDir) {
-					const previewPath = await findPreviewConfig(configDir);
-					if (previewPath) {
-						const previewContent = await fs.readFile(previewPath, 'utf-8');
-						const cssImports = extractCSSImports(previewContent, previewPath);
+				// 1. Find and read the preview config to discover CSS imports
+				const previewPath = await findPreviewConfig(configDir);
+				if (previewPath) {
+					const previewContent = await fs.readFile(previewPath, 'utf-8');
+					const cssImports = extractCSSImports(previewContent, previewPath);
 
-						for (const cssPath of cssImports) {
-							try {
-								const css = await fs.readFile(cssPath, 'utf-8');
-								const { blocks, sourceFile } = parseCSSCustomProperties(css, cssPath);
-								if (blocks.length > 0) {
-									allBlocks.push(...blocks);
-									sourceFiles.push(sourceFile);
-								}
-							} catch {
-								// CSS file not readable, skip
+					for (const cssPath of cssImports) {
+						try {
+							const css = await fs.readFile(cssPath, 'utf-8');
+							const { blocks, sourceFile } = parseCSSCustomProperties(css, cssPath);
+							if (blocks.length > 0) {
+								allBlocks.push(...blocks);
+								sourceFiles.push(sourceFile);
 							}
+						} catch {
+							// CSS file not readable, skip
 						}
 					}
+				}
 
-					const projectRoot = path.dirname(configDir);
-					const tokenFilePatterns = [
-						'tokens.css',
-						'colors.css',
-						'variables.css',
-						'globals.css',
-						'global.css',
-						'theme.css',
-						'design-tokens.css',
-					];
+				// 2. Scan for CSS files with token-like names in the config directory's parent
+				const projectRoot = path.dirname(configDir);
+				const tokenFilePatterns = [
+					'tokens.css',
+					'colors.css',
+					'variables.css',
+					'globals.css',
+					'global.css',
+					'theme.css',
+					'design-tokens.css',
+				];
 
-					const allCSS = await scanCSSFiles(projectRoot);
-					for (const cssPath of allCSS) {
-						if (sourceFiles.includes(cssPath)) continue;
-						const basename = path.basename(cssPath).toLowerCase();
-						if (tokenFilePatterns.includes(basename)) {
-							try {
-								const css = await fs.readFile(cssPath, 'utf-8');
-								const { blocks, sourceFile } = parseCSSCustomProperties(css, cssPath);
-								if (blocks.length > 0) {
-									allBlocks.push(...blocks);
-									sourceFiles.push(sourceFile);
-								}
-							} catch {
-								// skip unreadable
+				const allCSS = await scanCSSFiles(projectRoot);
+				for (const cssPath of allCSS) {
+					if (sourceFiles.includes(cssPath)) continue;
+					const basename = path.basename(cssPath).toLowerCase();
+					if (tokenFilePatterns.includes(basename)) {
+						try {
+							const css = await fs.readFile(cssPath, 'utf-8');
+							const { blocks, sourceFile } = parseCSSCustomProperties(css, cssPath);
+							if (blocks.length > 0) {
+								allBlocks.push(...blocks);
+								sourceFiles.push(sourceFile);
 							}
+						} catch {
+							// skip unreadable
 						}
 					}
 				}
 
 				if (allBlocks.length === 0) {
-					const fallback = await findTokenComponentsFallback(server);
-					if (fallback) {
-						return {
-							content: [{ type: 'text' as const, text: fallback }],
-						};
-					}
-
 					return {
 						content: [
 							{

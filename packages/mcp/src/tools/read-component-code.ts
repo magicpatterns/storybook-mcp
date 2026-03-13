@@ -87,12 +87,7 @@ function deriveComponentPathCandidates(storyPath: string): string[] {
 	return [`${base}.tsx`, `${base}.ts`, `${base}.jsx`, `${base}.js`];
 }
 
-function formatComponentCode(
-	component: ComponentManifest,
-	sourcePath: string,
-	code: string,
-	storyHtml?: { storyId: string; html: string },
-): string {
+function formatComponentCode(component: ComponentManifest, sourcePath: string, code: string): string {
 	const parts: string[] = [];
 	parts.push(`# ${component.name}`);
 	parts.push('');
@@ -101,16 +96,6 @@ function formatComponentCode(
 	parts.push('```');
 	parts.push(code);
 	parts.push('```');
-
-	if (storyHtml) {
-		parts.push('');
-		parts.push(`## Story HTML (${storyHtml.storyId})`);
-		parts.push('');
-		parts.push('```html');
-		parts.push(storyHtml.html);
-		parts.push('```');
-	}
-
 	return parts.join('\n');
 }
 
@@ -127,7 +112,7 @@ export async function addReadComponentCodeTool(
 		{
 			name: READ_COMPONENT_CODE_TOOL_NAME,
 			title: 'Read Component Code',
-			description: `Read the actual source code of a UI component. Accepts either a componentId or a storyId to identify the component. Returns the full source file contents for the component's implementation file, and when available, the rendered HTML of a representative story.
+			description: `Read the actual source code of a UI component. Accepts either a componentId or a storyId to identify the component. Returns the full source file contents for the component's implementation file.
 
 Use this when you need to understand how a component is implemented, not just its documentation or story snippets.
 
@@ -263,27 +248,11 @@ Prefer componentId over storyId. Use list-all-documentation to discover componen
 					};
 				}
 
-				let storyHtml: { storyId: string; html: string } | undefined;
-				if (ctx?.storyHtmlFetcher) {
-					const targetStoryId =
-						storyId ?? component.stories?.find((s) => s.id)?.id;
-					if (targetStoryId) {
-						try {
-							const html = await ctx.storyHtmlFetcher(targetStoryId);
-							if (html) {
-								storyHtml = { storyId: targetStoryId, html };
-							}
-						} catch {
-							// Story HTML is best-effort; don't fail the tool
-						}
-					}
-				}
-
 				return {
 					content: [
 						{
 							type: 'text' as const,
-							text: formatComponentCode(component, sourcePath, code, storyHtml),
+							text: formatComponentCode(component, sourcePath, code),
 						},
 					],
 				};

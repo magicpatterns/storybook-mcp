@@ -56,22 +56,6 @@ export type StorybookContext = {
 	 */
 	fileReader?: (relativePath: string) => Promise<string | undefined>;
 	/**
-	 * Optional function to fetch the rendered HTML for a story by its ID.
-	 * Used by the read-component-code tool to include story HTML alongside source code.
-	 * Returns the story's rendered HTML as a string, or undefined if unavailable.
-	 */
-	storyHtmlFetcher?: (storyId: string) => Promise<string | undefined>;
-	/**
-	 * Optional Storybook config directory path (e.g. "/project/.storybook").
-	 * Used by design-system tools to scan CSS and MDX files on disk.
-	 */
-	configDir?: string;
-	/**
-	 * Optional function that returns the raw Storybook stories config entries.
-	 * Used by the design-guidelines tool to resolve story directories for MDX scanning.
-	 */
-	storiesResolver?: () => Promise<unknown[]>;
-	/**
 	 * Sources configuration for multi-source mode.
 	 * When provided, tools will fetch and display manifests grouped by source.
 	 */

@@ -541,9 +541,9 @@ describe('MCP Endpoint E2E Tests', () => {
 				    "title": "Get Documentation for Story",
 				  },
 				  {
-			    "description": "Read the actual source code of a UI component. Accepts either a componentId or a storyId to identify the component. Returns the full source file contents for the component's implementation file, and when available, the rendered HTML of a representative story.
+				    "description": "Read the actual source code of a UI component. Accepts either a componentId or a storyId to identify the component. Returns the full source file contents for the component's implementation file.
 
-			Use this when you need to understand how a component is implemented, not just its documentation or story snippets.",
+				Use this when you need to understand how a component is implemented, not just its documentation or story snippets.",
 				    "inputSchema": {
 				      "$schema": "http://json-schema.org/draft-07/schema#",
 				      "properties": {
