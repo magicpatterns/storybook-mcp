@@ -1,5 +1,5 @@
 {
-	"name": "@alexanderlee/addon-mcp",
+	"name": "@magicpatterns/storybook-mcp-addon",
 	"version": "0.3.4",
 	"description": "Help agents read and understand your design system",
 	"keywords": [
@@ -26,18 +26,18 @@
 		"./package.json": "./package.json"
 	},
 	"publishConfig": {
-		"access": "restricted"
+		"access": "public"
 	},
 	"scripts": {
 		"prebuild": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\"",
 		"build": "tsdown",
 		"inspect": "mcp-inspector --config ../../.mcp.inspect.json --server storybook-addon-mcp",
 		"publint": "publint",
-		"test": "cd ../.. && pnpm vitest --project=@alexanderlee/addon-mcp",
+		"test": "cd ../.. && pnpm vitest --project=@magicpatterns/storybook-mcp-addon",
 		"typecheck": "tsc"
 	},
 	"dependencies": {
-		"@alexanderlee/mcp": "workspace:*",
+		"@magicpatterns/storybook-mcp": "workspace:*",
 		"@tmcp/adapter-valibot": "catalog:",
 		"@tmcp/transport-http": "catalog:",
 		"picoquery": "^2.5.0",

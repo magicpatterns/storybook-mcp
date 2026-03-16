@@ -123,7 +123,7 @@ describe('bin.ts stdio MCP server', () => {
 					},
 				},
 				serverInfo: {
-					name: '@alexanderlee/mcp',
+					name: '@magicpatterns/storybook-mcp',
 				},
 			},
 		});

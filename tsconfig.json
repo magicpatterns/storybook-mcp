@@ -28,7 +28,7 @@
 
 		// Enable live types
 		"paths": {
-			"@alexanderlee/mcp": ["./packages/mcp/src/index.ts"]
+			"@magicpatterns/storybook-mcp": ["./packages/mcp/src/index.ts"]
 		}
 	},
 	"include": ["*.ts"]

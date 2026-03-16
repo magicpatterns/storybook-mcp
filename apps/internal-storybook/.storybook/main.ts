@@ -20,7 +20,7 @@ const config = defineMain({
 		'@storybook/addon-vitest',
 		'@storybook/addon-themes',
 		{
-			name: '@alexanderlee/addon-mcp',
+			name: '@magicpatterns/storybook-mcp-addon',
 			options: {},
 		},
 	],

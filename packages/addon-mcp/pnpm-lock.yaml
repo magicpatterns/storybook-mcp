@@ -32,7 +32,7 @@ importers:
 
   .:
     dependencies:
-      '@alexanderlee/mcp':
+      '@magicpatterns/storybook-mcp':
         specifier: workspace:*
         version: link:../mcp
       '@tmcp/adapter-valibot':

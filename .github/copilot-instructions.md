@@ -6,7 +6,7 @@ This is a **pnpm monorepo** with two MCP implementations:
 
 - **`packages/addon-mcp`**: Storybook addon using `tmcp`, exposes MCP server at `/mcp` via Vite middleware
   - Provides addon-specific tools (story URLs, UI building instructions)
-  - **Imports and reuses tools from `@alexanderlee/mcp` package** for component manifest features
+  - **Imports and reuses tools from `@magicpatterns/storybook-mcp` package** for component manifest features
   - Extends `StorybookContext` with addon-specific configuration (`AddonContext`)
 - **`packages/mcp`**: Standalone MCP library using `tmcp`, reusable outside Storybook
   - Provides reusable component manifest tools (list components, get documentation)
@@ -30,7 +30,7 @@ The addon supports configuring which toolsets are enabled:
 - **Addon Options**: Configure default toolsets in `.storybook/main.js`:
   ```typescript
   {
-    name: '@alexanderlee/addon-mcp',
+    name: '@magicpatterns/storybook-mcp-addon',
     options: {
       toolsets: {
         dev: true,
@@ -57,7 +57,7 @@ The addon supports configuring which toolsets are enabled:
 
 ### MCP Library Architecture
 
-The `@alexanderlee/mcp` package (in `packages/mcp`) is framework-agnostic:
+The `@magicpatterns/storybook-mcp` package (in `packages/mcp`) is framework-agnostic:
 
 - Uses `tmcp` with HTTP transport and Valibot schema validation
 - Factory pattern: `createStorybookMcpHandler()` returns a request handler
@@ -212,12 +212,12 @@ export async function addMyTool(server: McpServer<any, AddonContext>) {
 
 2. Import and call in `src/mcp-handler.ts` within `initializeMCPServer`
 
-**Option 2: Reuse tools from `@alexanderlee/mcp`** (for component manifest features):
+**Option 2: Reuse tools from `@magicpatterns/storybook-mcp`** (for component manifest features):
 
-1. Import the tool from `@alexanderlee/mcp` in `src/mcp-handler.ts`:
+1. Import the tool from `@magicpatterns/storybook-mcp` in `src/mcp-handler.ts`:
 
 ```typescript
-import { addMyTool, MY_TOOL_NAME } from '@alexanderlee/mcp';
+import { addMyTool, MY_TOOL_NAME } from '@magicpatterns/storybook-mcp';
 ```
 
 2. Call it conditionally based on feature flags (see component manifest tools example)
@@ -250,7 +250,7 @@ export { addMyTool, MY_TOOL_NAME } from './tools/my-tool.ts';
 
 **Tool Reuse Between Packages:**
 
-- `addon-mcp` depends on `@alexanderlee/mcp` (workspace dependency)
+- `addon-mcp` depends on `@magicpatterns/storybook-mcp` (workspace dependency)
 - `AddonContext` extends `StorybookContext` to ensure type compatibility
 - Component manifest tools are conditionally registered based on feature flags:
   - Checks `features.componentsManifest` flag (or `features.experimentalComponentsManifest` for backwards compatibility)
@@ -312,7 +312,7 @@ pnpm release         # Build and publish (CI handles this)
 
 **Creating Changesets (MANDATORY for user-facing changes):**
 
-When making changes to `@alexanderlee/mcp` or `@alexanderlee/addon-mcp` that affect users (bug fixes, features, breaking changes, dependency updates), you **MUST** create a changeset:
+When making changes to `@magicpatterns/storybook-mcp` or `@magicpatterns/storybook-mcp-addon` that affect users (bug fixes, features, breaking changes, dependency updates), you **MUST** create a changeset:
 
 1. Create a new `.md` file in `.changeset/` directory
 2. Use naming convention: `<random-word>-<random-word>-<random-word>.md` (e.g., `brave-wolves-swim.md`)
@@ -320,8 +320,8 @@ When making changes to `@alexanderlee/mcp` or `@alexanderlee/addon-mcp` that aff
 
    ```markdown
    ---
-   '@alexanderlee/mcp': patch
-   '@alexanderlee/addon-mcp': patch
+   '@magicpatterns/storybook-mcp': patch
+   '@magicpatterns/storybook-mcp-addon': patch
    ---
 
    Brief description of what changed
@@ -339,7 +339,7 @@ When making changes to `@alexanderlee/mcp` or `@alexanderlee/addon-mcp` that aff
    - **WHY** the change was made
    - **HOW** consumers should update their code (if applicable)
 
-6. Only include packages that have actual user-facing changes (ignore internal packages like `@alexanderlee/mcp-internal-storybook`)
+6. Only include packages that have actual user-facing changes (ignore internal packages like `@magicpatterns/mcp-internal-storybook`)
 
 ## Testing with Internal Storybook
 

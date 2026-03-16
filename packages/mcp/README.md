@@ -1,1 +1,1 @@
-# `@alexanderlee/mcp`
+# `@magicpatterns/storybook-mcp`

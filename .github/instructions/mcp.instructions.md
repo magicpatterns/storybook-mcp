@@ -2,7 +2,7 @@
 applyTo: 'packages/mcp/**'
 ---
 
-# Copilot Instructions for @alexanderlee/mcp
+# Copilot Instructions for @magicpatterns/storybook-mcp
 
 ## Project Overview
 
@@ -63,7 +63,7 @@ The handler accepts a `StorybookContext` with the following key properties:
 **Example with custom manifestProvider (local filesystem):**
 
 ```typescript
-import { createStorybookMcpHandler } from '@alexanderlee/mcp';
+import { createStorybookMcpHandler } from '@magicpatterns/storybook-mcp';
 import { readFile } from 'node:fs/promises';
 
 const handler = await createStorybookMcpHandler({
@@ -82,7 +82,7 @@ const handler = await createStorybookMcpHandler({
 **Example with custom manifestProvider (S3 bucket mapping):**
 
 ```typescript
-import { createStorybookMcpHandler } from '@alexanderlee/mcp';
+import { createStorybookMcpHandler } from '@magicpatterns/storybook-mcp';
 
 const handler = await createStorybookMcpHandler({
 	manifestProvider: async (request, path) => {

@@ -6,7 +6,7 @@ const config: StorybookConfig = {
 		'@storybook/addon-a11y',
 		'@storybook/addon-vitest',
 		'@storybook/addon-docs',
-		'@alexanderlee/addon-mcp',
+		'@magicpatterns/storybook-mcp-addon',
 	],
 	framework: '@storybook/react-vite',
 };

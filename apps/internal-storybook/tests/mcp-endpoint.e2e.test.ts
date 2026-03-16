@@ -66,7 +66,7 @@ describe('MCP Endpoint E2E Tests', () => {
 						tools: { listChanged: true },
 					},
 					serverInfo: {
-						name: '@alexanderlee/addon-mcp',
+						name: '@magicpatterns/storybook-mcp-addon',
 						description: expect.stringContaining('agents'),
 					},
 				},

@@ -1,8 +1,8 @@
 ---
-'@alexanderlee/mcp': minor
-'@alexanderlee/addon-mcp': minor
+'@magicpatterns/storybook-mcp': minor
+'@magicpatterns/storybook-mcp-addon': minor
 ---
 
 Add MCP server-level instructions to both packages
 
-Both `@alexanderlee/mcp` and `@alexanderlee/addon-mcp` now include server instructions in the MCP `initialize` response. These instructions guide agents on how to use the available tools effectively without requiring explicit prompting from users.
+Both `@magicpatterns/storybook-mcp` and `@magicpatterns/storybook-mcp-addon` now include server instructions in the MCP `initialize` response. These instructions guide agents on how to use the available tools effectively without requiring explicit prompting from users.

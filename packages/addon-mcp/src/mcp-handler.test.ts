@@ -272,7 +272,7 @@ describe('mcpServerHandler', () => {
 					tools: { listChanged: true },
 				},
 				serverInfo: {
-					name: '@alexanderlee/addon-mcp',
+					name: '@magicpatterns/storybook-mcp-addon',
 					description: 'Help agents read and understand your design system',
 				},
 			},
@@ -393,7 +393,7 @@ describe('mcpServerHandler', () => {
 		expect(telemetry).not.toHaveBeenCalled();
 	});
 
-	it('should register tools from @alexanderlee/mcp when feature flag and generator are enabled', async () => {
+	it('should register tools from @magicpatterns/storybook-mcp when feature flag and generator are enabled', async () => {
 		const applyMock = vi.fn(async (key: string, defaultValue?: any) => {
 			if (key === 'core') {
 				return { disableTelemetry: false };
